@@ -6,26 +6,40 @@
  * Email: yuzl1123@163.com
  */
 import {IntlMessageFormat} from "intl-messageformat";
+import {LANGUAGE_MAP} from "./utils";
 
-type MessageMap = Record<string, string>
+export type MessageMap = Record<string, string>
 
-type IntlSource = Record<string, (() => MessageMap) | (() => Promise<MessageMap>)>
+export type IntlSources = Record<string, (() => MessageMap) | (() => Promise<MessageMap>)>
 
-class IntlExecutor {
+
+interface IntlExecutorOptions {
+  intlSources: IntlSources
+  initLocal: string
+}
+
+export class IntlExecutor {
+  // 文案源缓存(加载后的)
+  private cachedIntlMessageMaps: Record<string, MessageMap> = {}
+
+  // 文案源，其 key 为 local string (例如 zh-cn)，value 为一个文案 map，或者一个返回文案 map 的函数（懒加载）
+  private readonly intlSources: IntlSources = {}
+
+
   // 文案格式化器缓存，key 为对应的文案 key
-  private cachedFormatters: Record<string, IntlMessageFormat> = {}
+  private currentCachedFormatters: Record<string, IntlMessageFormat> = {}
 
   // 当前文案 map，key 为文案 key, value 为相应的文案模板，这个 value 可以交给 formatter 进行处理
   private currentMessageMap: MessageMap = {}
 
-  // 当前 local 字符串
-  private currentLocal: string = 'zh-cn'
+  // 当前 local string
+  private currentLocal: string = LANGUAGE_MAP.zh
 
-  // 文案源，其 key 为文案的名称(例如 zh-cn)，value 为一个文案 map，或者一个返回文案 map 的函数（懒加载）
-  private intlSource: IntlSource
+  constructor(options: IntlExecutorOptions) {
+    const {intlSources} = options
+    this.intlSources = intlSources
+  }
 
-  // 文案源缓存(加载后的)
-  private cachedIntlSource: Record<string, MessageMap>
 
   /**
    * 获取文案内容
@@ -34,8 +48,8 @@ class IntlExecutor {
    * @param key 文案 key
    * @param params 文案参数
    */
-  getMessage(key: string, params?: any) {
-    let targetFormatter = this.cachedFormatters[key];
+  public getMessage(key: string, params?: any) {
+    let targetFormatter = this.currentCachedFormatters[key];
 
     // 没有命中缓存
     if (!targetFormatter) {
@@ -47,17 +61,59 @@ class IntlExecutor {
       }
     }
 
-    return targetFormatter.format(params)
+    return targetFormatter.format(params) as string
   }
 
   /**
-   * 加载文案源
+   * 更新当前语言
+   *
+   * @author yuzhanglong
+   * @date 2021-07-28 23:30:08
+   * @param newLocal 新的语言
+   */
+  public async updateCurrentLocal(newLocal: string) {
+    this.currentCachedFormatters = {}
+
+    if (this.currentLocal === newLocal) {
+      return
+    }
+
+    const newLocalMap = this.cachedIntlMessageMaps[newLocal]
+
+    if (newLocalMap) {
+      // init
+      this.currentCachedFormatters = {}
+      this.currentMessageMap = {}
+      this.currentMessageMap = newLocalMap
+    } else {
+      throw new Error(`local string '${newLocal}' was not loaded, did you forget to local intl source file?`)
+    }
+
+    this.currentLocal = newLocal
+  }
+
+  /**
+   * 根据传入的 local string，从源数据中加载文案源
    *
    * @date 2021-07-27 23:04:01
    * @param locals 文案所在的 local
    */
-  async loadIntlSource(locals: string[]) {
-    this.cachedFormatters = {}
+  public async loadIntlSource(locals: string[]) {
+    for (let local of locals) {
+      if (this.cachedIntlMessageMaps[local]) {
+        continue
+      }
 
+      const targetSource = this.intlSources[local];
+      if (!targetSource) {
+        return
+      }
+
+      try {
+        this.cachedIntlMessageMaps[local] = typeof targetSource === "function" ? await targetSource() : targetSource
+      } catch (e) {
+        throw new Error(e)
+      }
+    }
   }
 }

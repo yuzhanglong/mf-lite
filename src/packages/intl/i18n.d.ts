@@ -1,8 +1,10 @@
+import {IntlFn} from "@/packages/intl/create-intl";
+
 declare global {
-  const intl: (key: string, args?: Record<string, any>) => string
+  const intl: IntlFn
 
   interface Window {
-    intl: (key: string, args?: Record<string, any>) => string
+    intl: IntlFn
   }
 }
 
