@@ -1,4 +1,4 @@
 {
-  "App_Name": "姓名",
-  "App_Age": "年龄"
+  "App_Name": "姓名: {name}",
+  "App_Age": "年龄: {age}"
 }

@@ -6,7 +6,6 @@
  * Email: yuzl1123@163.com
  */
 import {IntlMessageFormat} from "intl-messageformat";
-import {LANGUAGE_MAP} from "./utils";
 
 export type MessageMap = Record<string, string>
 
@@ -15,25 +14,24 @@ export type IntlSources = Record<string, (() => MessageMap) | (() => Promise<Mes
 
 interface IntlExecutorOptions {
   intlSources: IntlSources
-  initLocal: string
 }
 
 export class IntlExecutor {
   // 文案源缓存(加载后的)
-  private cachedIntlMessageMaps: Record<string, MessageMap> = {}
+  cachedIntlMessageMaps: Record<string, MessageMap> = {}
 
   // 文案源，其 key 为 local string (例如 zh-cn)，value 为一个文案 map，或者一个返回文案 map 的函数（懒加载）
-  private readonly intlSources: IntlSources = {}
+  readonly intlSources: IntlSources = {}
 
 
   // 文案格式化器缓存，key 为对应的文案 key
-  private currentCachedFormatters: Record<string, IntlMessageFormat> = {}
+  currentCachedFormatters: Record<string, IntlMessageFormat> = {}
 
   // 当前文案 map，key 为文案 key, value 为相应的文案模板，这个 value 可以交给 formatter 进行处理
-  private currentMessageMap: MessageMap = {}
+  currentMessageMap: MessageMap = {}
 
   // 当前 local string
-  private currentLocal: string = LANGUAGE_MAP.zh
+  currentLocal: string = ''
 
   constructor(options: IntlExecutorOptions) {
     const {intlSources} = options
@@ -49,6 +47,10 @@ export class IntlExecutor {
    * @param params 文案参数
    */
   public getMessage(key: string, params?: any) {
+    if (!this.currentLocal) {
+      throw new Error('please set current local string!')
+    }
+
     let targetFormatter = this.currentCachedFormatters[key];
 
     // 没有命中缓存
@@ -71,7 +73,7 @@ export class IntlExecutor {
    * @date 2021-07-28 23:30:08
    * @param newLocal 新的语言
    */
-  public async updateCurrentLocal(newLocal: string) {
+  public updateCurrentLocal(newLocal: string) {
     this.currentCachedFormatters = {}
 
     if (this.currentLocal === newLocal) {

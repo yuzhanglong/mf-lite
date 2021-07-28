@@ -4,12 +4,16 @@
     "target": "es5",
     "lib": [
       "esnext",
-      "dom",
+      "dom"
+    ],
+    "types": [
       "jest"
     ],
     "resolveJsonModule": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [

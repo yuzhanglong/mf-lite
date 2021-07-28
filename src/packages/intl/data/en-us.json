@@ -1,4 +1,4 @@
 {
-  "App_Name": "name",
-  "App_Age": "age"
+  "App_Name": "name: {name}",
+  "App_Age": "age: {age}"
 }

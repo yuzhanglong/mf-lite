@@ -22,14 +22,5 @@
   },
   "dependencies": {
     "intl-messageformat": "^9.8.1"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "collectCoverage": false,
-    "testRegex": "(/__tests__/.*\\.(test|spec))\\.ts$",
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ],
-    "testEnvironment": "node"
   }
 }
