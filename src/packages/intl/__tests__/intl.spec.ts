@@ -7,12 +7,15 @@
  */
 
 
-import {IntlExecutor, INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE} from "../intl-executor";
-import {I18nChunkMap, LANGUAGE_MAP} from "../common";
+import { IntlExecutor } from '../intl-executor';
+import { I18nChunkMap, INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE, LANGUAGE_MAP } from '../common';
 
 describe('test intl packages', () => {
-  const executor = new IntlExecutor({
-    intlSources: I18nChunkMap
+  let executor = null;
+  beforeEach(() => {
+    executor = new IntlExecutor({
+      intlSources: I18nChunkMap,
+    });
   });
 
   test('test load source data', async () => {
@@ -32,13 +35,13 @@ describe('test intl packages', () => {
   test('test get intl messages', async () => {
     // load chunks
     await executor.loadIntlSource([LANGUAGE_MAP.zh, LANGUAGE_MAP.en]);
-    executor.updateCurrentLocal(LANGUAGE_MAP.zh);
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
 
     const msg1 = executor.getMessage('App_Name', {
-      name: 'yuzhanglong'
+      name: 'yuzhanglong',
     });
     const msg2 = executor.getMessage('App_Age', {
-      age: 20
+      age: 20,
     });
 
     expect(msg1).toStrictEqual('姓名: yuzhanglong');
@@ -49,11 +52,11 @@ describe('test intl packages', () => {
   test('test formatter cache', async () => {
     // load chunks
     await executor.loadIntlSource([LANGUAGE_MAP.zh, LANGUAGE_MAP.en]);
-    executor.updateCurrentLocal(LANGUAGE_MAP.zh);
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
     expect(executor.currentCachedFormatters).toStrictEqual({});
 
     executor.getMessage('App_Name', {
-      name: 'yuzhanglong'
+      name: 'yuzhanglong',
     });
     expect(executor.currentCachedFormatters.App_Name).toBeTruthy();
   });
@@ -62,34 +65,33 @@ describe('test intl packages', () => {
     // load chunks
     await executor.loadIntlSource([LANGUAGE_MAP.zh, LANGUAGE_MAP.en]);
 
-    executor.updateCurrentLocal(LANGUAGE_MAP.zh);
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
 
     const msg1 = executor.getMessage('App_Name', {
-      name: 'yuzhanglong'
+      name: 'yuzhanglong',
     });
 
     expect(msg1).toStrictEqual('姓名: yuzhanglong');
 
-    executor.updateCurrentLocal(LANGUAGE_MAP.en);
+    await executor.updateCurrentLocal(LANGUAGE_MAP.en);
 
     const msg2 = executor.getMessage('App_Name', {
-      name: 'yuzhanglong'
+      name: 'yuzhanglong',
     });
 
     expect(msg2).toStrictEqual('name: yuzhanglong');
   });
 
-  test('Call getMessage() but have not set current local, we should throw an error', async () => {
+  test('call getMessage() but have not set current local, we should throw an error', async () => {
     // load chunks
     await executor.loadIntlSource([LANGUAGE_MAP.zh]);
 
     try {
       executor.getMessage('App_Name', {
-        name: 'yuzhanglong'
+        name: 'yuzhanglong',
       });
     } catch (e) {
-      console.log(e);
-      expect(e.message).toStrictEqual('please set current local string!');
+      expect(e.message).toStrictEqual('please set current local string by calling updateCurrentLocal()!');
     }
   });
 
@@ -97,10 +99,10 @@ describe('test intl packages', () => {
     // load chunks
     await executor.loadIntlSource([LANGUAGE_MAP.zh, LANGUAGE_MAP.en]);
 
-    executor.updateCurrentLocal(LANGUAGE_MAP.zh);
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
 
     const msg = executor.getMessage('bad key', {
-      name: 'yuzhanglong'
+      name: 'yuzhanglong',
     });
 
     expect(msg).toStrictEqual(INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE);
@@ -111,7 +113,7 @@ describe('test intl packages', () => {
     await executor.loadIntlSource([LANGUAGE_MAP.zh]);
 
     try {
-      executor.updateCurrentLocal(LANGUAGE_MAP.en);
+      await executor.updateCurrentLocal(LANGUAGE_MAP.en);
     } catch (e) {
       expect(e.message).toStrictEqual('local string \'en-US\' was not loaded, did you forget to local intl source file?');
     }
@@ -122,8 +124,8 @@ describe('test intl packages', () => {
       intlSources: {
         foo: async () => {
           throw new Error('bad intl source!');
-        }
-      }
+        },
+      },
     });
 
     try {
@@ -139,5 +141,38 @@ describe('test intl packages', () => {
     } catch (e) {
       expect(e.message).toStrictEqual('the local \'key does not exist!\' does not have any intl source!\'');
     }
+  });
+
+  test('test updateIntlSources()', async () => {
+    // not override
+    executor.updateIntlSources({
+      [LANGUAGE_MAP.zh]: () => import(/* webpackChunkName: "i18n.zh-cn" */ "@/packages/intl/data/zh-cn.json"),
+    }, false);
+    expect(Object.keys(executor.intlSources).length).toStrictEqual(2);
+
+    // override
+    executor.updateIntlSources({
+      [LANGUAGE_MAP.en]: () => import(/* webpackChunkName: "i18n.en-us" */ "@/packages/intl/data/en-us.json")
+    }, true);
+    expect(Object.keys(executor.intlSources).length).toStrictEqual(1);
+  });
+
+  test('call updateCurrentLocal(), the new local is same as currentLocal, we will not do anything', async () => {
+    // load chunks
+    await executor.loadIntlSource([LANGUAGE_MAP.zh]);
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
+
+    const oldFormatter = executor.currentCachedFormatters;
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
+    const newFormatter = executor.currentCachedFormatters;
+
+    // 如果新旧 formatter 相同，说明他们是同一个实例，也就是说 updateCurrentLocal 并没用重复初始化 formatter
+    expect(oldFormatter === newFormatter).toBeTruthy();
+  });
+
+  test('call updateCurrentLocal(), and set loadWhenNotFound tobe truthy', async () => {
+    // load chunks
+    await executor.updateCurrentLocal(LANGUAGE_MAP.zh, true);
+    expect(executor.cachedIntlMessageMaps[LANGUAGE_MAP.zh]).toBeTruthy();
   });
 });

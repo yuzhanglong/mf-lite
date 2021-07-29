@@ -1,5 +1,5 @@
-import {IntlExecutor, IntlSources} from "@/packages/intl/intl-executor";
-import {IntlFn} from "@/packages/intl/types";
+import {IntlExecutor} from "@/packages/intl/intl-executor";
+import { IntlFn, IntlSources } from '@/packages/intl/types';
 
 
 export function createIntl(locale: string, sources?: IntlSources) {

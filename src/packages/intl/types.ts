@@ -7,3 +7,7 @@
  */
 
 export type IntlFn = (key: string, args?: Record<string, any>) => string
+
+export type MessageMap = Record<string, string>
+
+export type IntlSources = Record<string, (() => MessageMap) | (() => Promise<MessageMap>)>

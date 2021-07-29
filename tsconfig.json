@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "target": "es5",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "module": "CommonJS",
     "lib": [
       "esnext",
       "dom"

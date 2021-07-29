@@ -24,6 +24,7 @@ module.exports = {
     'no-console': 'off',
     'arrow-body-style': 'off',
     'no-useless-constructor': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
   settings: {
     'import/parsers': {

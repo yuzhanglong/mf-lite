@@ -11,7 +11,7 @@ const config: webpack.Configuration = {
       'intl': [
         path.resolve(
           process.cwd(),
-          './src/packages/intl/create-intl.ts'
+          './src/packages/intl/intl-entry.ts'
         ),
         'default'
       ]
@@ -28,6 +28,6 @@ const config: webpack.Configuration = {
       }
     ]
   }
-}
+};
 
 export default config;
