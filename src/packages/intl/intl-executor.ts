@@ -16,6 +16,8 @@ interface IntlExecutorOptions {
   intlSources: IntlSources
 }
 
+export const INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE = 'the message is empty...'
+
 export class IntlExecutor {
   // 文案源缓存(加载后的)
   cachedIntlMessageMaps: Record<string, MessageMap> = {}
@@ -57,9 +59,10 @@ export class IntlExecutor {
     if (!targetFormatter) {
       const messageTemplate = this.currentMessageMap[key]
       if (!messageTemplate) {
-        return 'the message is empty...'
+        return INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE
       } else {
         targetFormatter = new IntlMessageFormat(messageTemplate, this.currentLocal)
+        this.currentCachedFormatters[key] = targetFormatter
       }
     }
 
@@ -100,21 +103,23 @@ export class IntlExecutor {
    * @date 2021-07-27 23:04:01
    * @param locals 文案所在的 local
    */
-  public async loadIntlSource(locals: string[]) {
-    for (let local of locals) {
+  public async loadIntlSource(locals: string | string[]) {
+    let resLocals = Array.isArray(locals) ? locals : [locals]
+
+    for (let local of resLocals) {
       if (this.cachedIntlMessageMaps[local]) {
         continue
       }
 
       const targetSource = this.intlSources[local];
       if (!targetSource) {
-        return
+        throw new Error(`the local '${local}' does not have any intl source!'`)
       }
 
       try {
         this.cachedIntlMessageMaps[local] = typeof targetSource === "function" ? await targetSource() : targetSource
       } catch (e) {
-        throw new Error(e)
+        throw e
       }
     }
   }

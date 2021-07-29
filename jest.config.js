@@ -3,7 +3,7 @@ const {compilerOptions} = require('./tsconfig')
 
 module.exports = {
   preset: "ts-jest",
-  collectCoverage: false,
+  collectCoverage: true,
   testRegex: "(/__tests__/.*\\.(test|spec))\\.ts$",
   collectCoverageFrom: [
     "src/**/*.ts"
