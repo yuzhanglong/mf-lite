@@ -1,11 +1,11 @@
-import {IntlFn} from "@/packages/intl/create-intl";
+import {IntlFn} from "@/packages/intl/types";
 
 declare global {
-  const intl: IntlFn
+  const intl: IntlFn;
 
   interface Window {
     intl: IntlFn
   }
 }
 
-export {}
+export {};

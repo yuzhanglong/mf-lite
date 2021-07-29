@@ -5,7 +5,7 @@
  * Author: yuzhanglong
  * Email: yuzl1123@163.com
  */
-import {IntlMessageFormat} from "intl-messageformat";
+import { IntlMessageFormat } from 'intl-messageformat';
 
 export type MessageMap = Record<string, string>
 
@@ -13,31 +13,31 @@ export type IntlSources = Record<string, (() => MessageMap) | (() => Promise<Mes
 
 
 interface IntlExecutorOptions {
-  intlSources: IntlSources
+  intlSources: IntlSources;
 }
 
-export const INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE = 'the message is empty...'
+export const INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE = 'the message is empty...';
 
 export class IntlExecutor {
   // 文案源缓存(加载后的)
-  cachedIntlMessageMaps: Record<string, MessageMap> = {}
+  cachedIntlMessageMaps: Record<string, MessageMap> = {};
 
   // 文案源，其 key 为 local string (例如 zh-cn)，value 为一个文案 map，或者一个返回文案 map 的函数（懒加载）
-  readonly intlSources: IntlSources = {}
+  readonly intlSources: IntlSources = {};
 
 
   // 文案格式化器缓存，key 为对应的文案 key
-  currentCachedFormatters: Record<string, IntlMessageFormat> = {}
+  currentCachedFormatters: Record<string, IntlMessageFormat> = {};
 
   // 当前文案 map，key 为文案 key, value 为相应的文案模板，这个 value 可以交给 formatter 进行处理
-  currentMessageMap: MessageMap = {}
+  currentMessageMap: MessageMap = {};
 
   // 当前 local string
-  currentLocal: string = ''
+  currentLocal: string = '';
 
   constructor(options: IntlExecutorOptions) {
-    const {intlSources} = options
-    this.intlSources = intlSources
+    const { intlSources } = options;
+    this.intlSources = intlSources;
   }
 
 
@@ -50,23 +50,23 @@ export class IntlExecutor {
    */
   public getMessage(key: string, params?: any) {
     if (!this.currentLocal) {
-      throw new Error('please set current local string!')
+      throw new Error('please set current local string!');
     }
 
     let targetFormatter = this.currentCachedFormatters[key];
 
     // 没有命中缓存
     if (!targetFormatter) {
-      const messageTemplate = this.currentMessageMap[key]
+      const messageTemplate = this.currentMessageMap[key];
       if (!messageTemplate) {
-        return INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE
-      } else {
-        targetFormatter = new IntlMessageFormat(messageTemplate, this.currentLocal)
-        this.currentCachedFormatters[key] = targetFormatter
+        return INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE;
       }
+      targetFormatter = new IntlMessageFormat(messageTemplate, this.currentLocal);
+      this.currentCachedFormatters[key] = targetFormatter;
+
     }
 
-    return targetFormatter.format(params) as string
+    return targetFormatter.format(params) as string;
   }
 
   /**
@@ -77,24 +77,24 @@ export class IntlExecutor {
    * @param newLocal 新的语言
    */
   public updateCurrentLocal(newLocal: string) {
-    this.currentCachedFormatters = {}
+    this.currentCachedFormatters = {};
 
     if (this.currentLocal === newLocal) {
-      return
+      return;
     }
 
-    const newLocalMap = this.cachedIntlMessageMaps[newLocal]
+    const newLocalMap = this.cachedIntlMessageMaps[newLocal];
 
     if (newLocalMap) {
       // init
-      this.currentCachedFormatters = {}
-      this.currentMessageMap = {}
-      this.currentMessageMap = newLocalMap
+      this.currentCachedFormatters = {};
+      this.currentMessageMap = {};
+      this.currentMessageMap = newLocalMap;
     } else {
-      throw new Error(`local string '${newLocal}' was not loaded, did you forget to local intl source file?`)
+      throw new Error(`local string '${newLocal}' was not loaded, did you forget to local intl source file?`);
     }
 
-    this.currentLocal = newLocal
+    this.currentLocal = newLocal;
   }
 
   /**
@@ -104,22 +104,18 @@ export class IntlExecutor {
    * @param locals 文案所在的 local
    */
   public async loadIntlSource(locals: string | string[]) {
-    let resLocals = Array.isArray(locals) ? locals : [locals]
+    const resLocals = Array.isArray(locals) ? locals : [locals];
 
-    for (let local of resLocals) {
-      if (this.cachedIntlMessageMaps[local]) {
-        continue
-      }
+    for (let i = 0; i < resLocals.length; i += 1) {
+      const local = resLocals[i];
+      if (!this.cachedIntlMessageMaps[local]) {
+        const targetSource = this.intlSources[local];
+        if (!targetSource) {
+          throw new Error(`the local '${local}' does not have any intl source!'`);
+        }
 
-      const targetSource = this.intlSources[local];
-      if (!targetSource) {
-        throw new Error(`the local '${local}' does not have any intl source!'`)
-      }
-
-      try {
-        this.cachedIntlMessageMaps[local] = typeof targetSource === "function" ? await targetSource() : targetSource
-      } catch (e) {
-        throw e
+        // eslint-disable-next-line no-await-in-loop
+        this.cachedIntlMessageMaps[local] = typeof targetSource === 'function' ? await targetSource() : targetSource;
       }
     }
   }
