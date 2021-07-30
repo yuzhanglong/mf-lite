@@ -7,9 +7,8 @@
  */
 
 import { createIntl } from '@/packages/intl/create-intl';
-import { LANGUAGE_MAP } from '@/packages/intl/common';
 
-const intl = createIntl(LANGUAGE_MAP.zh);
+const intl = createIntl();
 
 window.intl = intl;
 

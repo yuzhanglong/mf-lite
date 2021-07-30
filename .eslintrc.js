@@ -25,6 +25,8 @@ module.exports = {
     'arrow-body-style': 'off',
     'no-useless-constructor': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'no-undef': 'off',
+    'object-shorthand': 'off',
   },
   settings: {
     'import/parsers': {

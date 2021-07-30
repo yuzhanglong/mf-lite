@@ -7,13 +7,13 @@
  */
 
 
-import { IntlExecutor } from '../intl-executor';
+import { IntlContainers } from '../intl-containers';
 import { I18nChunkMap, INTL_KEY_NOT_EXIST_DEFAULT_MESSAGE, LANGUAGE_MAP } from '../common';
 
 describe('test intl packages', () => {
   let executor = null;
   beforeEach(() => {
-    executor = new IntlExecutor({
+    executor = new IntlContainers({
       intlSources: I18nChunkMap,
     });
   });
@@ -120,7 +120,7 @@ describe('test intl packages', () => {
   });
 
   test('target source fn throw internal error', async () => {
-    const executor = new IntlExecutor({
+    const executor = new IntlContainers({
       intlSources: {
         foo: async () => {
           throw new Error('bad intl source!');

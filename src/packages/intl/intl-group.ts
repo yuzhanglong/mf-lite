@@ -1,5 +1,5 @@
 /**
- * File: intl-executor.ts
+ * File: intl-group.ts
  * Description: 语言调度类，负责语言的管理
  * Created: 2021-07-27 21:58:52
  * Author: yuzhanglong
@@ -14,7 +14,7 @@ interface IntlExecutorOptions {
   intlSources: IntlSources;
 }
 
-export class IntlExecutor {
+export class IntlGroup {
   // 文案源缓存(加载后的)
   cachedIntlMessageMaps: Record<string, MessageMap> = {};
 
