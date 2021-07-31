@@ -108,13 +108,13 @@ describe('test intl-pool-executor', () => {
 
     await executor
       .register('group 1', {
-        [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn.json'),
+        [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn.json')
 
       })
       .activate('group 1');
 
     await executor.register('group 2', {
-      [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn-part-2.json'),
+      [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn-part-2.json')
     }).activate('group 2');
 
     expect(executor.getMessage('App_Name', {
@@ -136,6 +136,67 @@ describe('test intl-pool-executor', () => {
 
     // deactivate 不是将文案组从文案池中移除
     expect(executor.intlGroups.length).toStrictEqual(2);
+  });
+
+  test('test unregister group that not exist, we should log warning', () => {
+    console.warn = jest.fn();
+    const executor = new IntlPoolExecutor();
+    executor.unregister('not exist!');
+    expect(console.warn).toBeCalledWith('intl group \'not exist!\' not found!');
+  });
+
+  test('test deactivate group that not exist, we should log warning', () => {
+    console.warn = jest.fn();
+    const executor = new IntlPoolExecutor();
+    executor.deactivate('not exist!');
+    expect(console.warn).toBeCalledWith('intl group \'not exist!\' not found!');
+  });
+
+  test('test activate group that not exist, we should log warning', async () => {
+    console.warn = jest.fn();
+    const executor = new IntlPoolExecutor();
+    await executor.activate('not exist!');
+    expect(console.warn).toBeCalledWith('intl group \'not exist!\' not found!');
+  });
+
+  test('test register the same group', async () => {
+    console.warn = jest.fn();
+    const executor = new IntlPoolExecutor();
+    await executor.register('aaa', {});
+    await executor.register('aaa', {});
+    expect(console.warn).toBeCalledWith('message group \'aaa\' has been registered!');
+  });
+
+  test('test getMessage, but we did not set current local', () => {
+    const executor = new IntlPoolExecutor();
+    expect(() => {
+      executor.getMessage('test', {});
+    }).toThrowError('your should set local string at first!');
+  });
+
+
+  test('test setLocal will not update unactivated intl group', async () => {
+    const executor = new IntlPoolExecutor();
+
+    await executor.setLocal(LANGUAGE_MAP.zh);
+
+    await executor
+      .register('group 1', {
+        [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn.json'),
+        [LANGUAGE_MAP.en]: () => import('@/packages/intl/data/en-us.json')
+
+      })
+      .activate('group 1');
+
+    expect(executor.getMessage('App_Name', {
+      name: 'yzl'
+    })).toStrictEqual('姓名: yzl');
+
+    executor.deactivate('group 1');
+
+    await executor.setLocal(LANGUAGE_MAP.en);
+    // 未激活的其内部 local 不会更新
+    expect(executor.intlGroups[0].intlGroup.currentLocal).toStrictEqual(LANGUAGE_MAP.zh);
   });
 });
 

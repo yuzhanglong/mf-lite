@@ -84,7 +84,7 @@ export class IntlPoolExecutor implements IIntlGroupExecutor {
    */
   register(name, sources) {
     if (this.getIntlGroupWrapperByName(name)) {
-      console.warn(`message group ${name} has been registered!`);
+      console.warn(`message group '${name}' has been registered!`);
       return;
     }
 
@@ -128,6 +128,10 @@ export class IntlPoolExecutor implements IIntlGroupExecutor {
    */
   async activate(name: string) {
     const item = this.getIntlGroupWrapperByName(name);
+    if (!item) {
+      console.warn(`intl group '${name}' not found!`);
+      return;
+    }
     item.isActive = true;
     await item.intlGroup.updateCurrentLocal(this.currentLocal, true);
   }
@@ -141,6 +145,10 @@ export class IntlPoolExecutor implements IIntlGroupExecutor {
    */
   deactivate(name: string) {
     const item = this.getIntlGroupWrapperByName(name);
+    if (!item) {
+      console.warn(`intl group '${name}' not found!`);
+      return;
+    }
     item.isActive = false;
   }
 }
