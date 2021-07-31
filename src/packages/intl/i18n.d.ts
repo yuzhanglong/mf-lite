@@ -1,10 +1,10 @@
-import {IntlFn} from "@/packages/intl/types";
+import { GlobalIntl } from '@/packages/intl/types';
 
 declare global {
-  const intl: IntlFn;
+  const intl: GlobalIntl;
 
   interface Window {
-    intl: IntlFn
+    intl: GlobalIntl
   }
 }
 

@@ -184,7 +184,6 @@ describe('test intl-pool-executor', () => {
       .register('group 1', {
         [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn.json'),
         [LANGUAGE_MAP.en]: () => import('@/packages/intl/data/en-us.json')
-
       })
       .activate('group 1');
 

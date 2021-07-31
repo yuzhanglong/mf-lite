@@ -21,7 +21,6 @@ export class IntlGroup {
   // 文案源，其 key 为 local string (例如 zh-cn)，value 为一个文案 map，或者一个返回文案 map 的函数（懒加载）
   intlSources: IntlSources = {};
 
-
   // 文案格式化器缓存，key 为对应的文案 key
   currentCachedFormatters: Record<string, IntlMessageFormat> = {};
 
