@@ -1,6 +1,6 @@
 /**
  * File: intl-entry.ts
- * Description: 注册全局 intl 方法
+ * Description: intl 出口
  * Created: 2021-07-29 16:26:47
  * Author: yuzhanglong
  * Email: yuzl1123@163.com
@@ -8,8 +8,9 @@
 
 import { createIntl } from '@/packages/intl/create-intl';
 
-const intl = createIntl();
+// 暴露出 intl
+const i = createIntl();
 
-window.intl = intl;
+window.intl = i;
 
-export default intl;
+export default i;
