@@ -3,6 +3,9 @@
     "baseUrl": "src",
     "target": "ES2020",
     "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": true,
     "module": "CommonJS",
     "sourceMap": true,
     "lib": [
