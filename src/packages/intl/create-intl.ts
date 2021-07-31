@@ -5,11 +5,8 @@
  * Author: yuzhanglong
  * Email: yuzl1123@163.com
  */
-import { IIntlGroupExecutor, IntlPoolExecutor } from '@/packages/intl/intl-pool-executor';
-
-export type GlobalIntl = IIntlGroupExecutor & {
-  (key: string, args: any): string;
-}
+import { IntlPoolExecutor } from '@/packages/intl/intl-pool-executor';
+import { GlobalIntl } from './types';
 
 export function createIntl() {
   const executor = new IntlPoolExecutor();
