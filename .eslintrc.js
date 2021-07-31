@@ -27,7 +27,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-undef': 'off',
     'object-shorthand': 'off',
-    'no-await-in-loop': 'off'
+    'no-await-in-loop': 'off',
+    'consistent-return':'off'
   },
   settings: {
     'import/parsers': {

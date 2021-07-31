@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "target": "ESNext",
+    "target": "ES2020",
     "moduleResolution": "node",
     "module": "CommonJS",
     "lib": [
-      "esnext",
+      "ES2020",
       "dom"
     ],
     "types": [

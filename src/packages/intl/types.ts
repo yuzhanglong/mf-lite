@@ -17,10 +17,10 @@ export interface IIntlGroupExecutor {
   setLocal: (local: string) => Promise<void>;
 
   // 注册一个 intl group
-  register: (name: string, sources: IntlSources) => void;
+  register: (name: string, sources: IntlSources) => IIntlGroupExecutor;
 
   // 移除一个 intl group
-  unregister: (name: string) => void;
+  unregister: (name: string) => IIntlGroupExecutor;
 }
 
 export type GlobalIntl = IIntlGroupExecutor & {

@@ -1,5 +1,5 @@
 /**
- * File: intl-group.ts
+ * File: intl-group.spec.ts
  * Description: 语言调度类，负责语言的管理
  * Created: 2021-07-27 21:58:52
  * Author: yuzhanglong
