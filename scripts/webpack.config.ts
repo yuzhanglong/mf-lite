@@ -15,12 +15,12 @@ const config: webpack.Configuration = {
       'intl': [
         path.resolve(
           process.cwd(),
-          'src/packages/intl/intl-entry'
+          'src/packages/intl/intl-entry',
         ),
-        'default'
-      ]
+        'default',
+      ],
     }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin(),
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -31,9 +31,10 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: [/\.[jt]sx?$/],
+        include: [path.resolve(process.cwd(), './src')],
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
         },
       },
     ],
