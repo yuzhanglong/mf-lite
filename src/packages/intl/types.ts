@@ -15,7 +15,7 @@ export interface IIntlGroupExecutor {
   setLocal: (local: string) => Promise<void>;
 
   // 激活某个文案组
-  activate: (name: string) => void;
+  activate: (name: string) => Promise<void>;
 
   // 取消激活某个文案组
   deactivate: (name: string) => void;

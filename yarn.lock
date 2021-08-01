@@ -1384,10 +1384,24 @@
   resolved "https://registry.nlark.com/@types/prettier/download/@types/prettier-2.3.2.tgz?cache=0&sync_timestamp=1625678505137&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprettier%2Fdownload%2F%40types%2Fprettier-2.3.2.tgz#fc8c2825e4ed2142473b4a81064e6e081463d1b3"
   integrity sha1-/IwoJeTtIUJHO0qBBk5uCBRj0bM=
 
+"@types/source-list-map@*":
+  version "0.1.2"
+  resolved "https://registry.nlark.com/@types/source-list-map/download/@types/source-list-map-0.1.2.tgz?cache=0&sync_timestamp=1621243743474&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fsource-list-map%2Fdownload%2F%40types%2Fsource-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
+  integrity sha1-AHiDYGP/rxdBI0m7o2QIfgrALsk=
+
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
   resolved "https://registry.nlark.com/@types/stack-utils/download/@types/stack-utils-2.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fstack-utils%2Fdownload%2F%40types%2Fstack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha1-IPGClPeX8iCbX2XI47XI6CYdEnw=
+
+"@types/webpack-sources@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.nlark.com/@types/webpack-sources/download/@types/webpack-sources-2.1.1.tgz?cache=0&sync_timestamp=1625252054855&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fwebpack-sources%2Fdownload%2F%40types%2Fwebpack-sources-2.1.1.tgz#6af17e3a3ded71eec2b98008d7c12f498a0a4506"
+  integrity sha1-avF+Oj3tce7CuYAI18EvSYoKRQY=
+  dependencies:
+    "@types/node" "*"
+    "@types/source-list-map" "*"
+    source-map "^0.7.3"
 
 "@types/webpack@^5.28.0":
   version "5.28.0"
@@ -7089,6 +7103,11 @@ webpack-sources@^2.3.1:
   dependencies:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
+
+webpack-sources@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.nlark.com/webpack-sources/download/webpack-sources-3.1.2.tgz#614c962ac45dfac7f0f482052db8324a6e0dc274"
+  integrity sha1-YUyWKsRd+sfw9IIFLbgySm4NwnQ=
 
 webpack@^5, webpack@^5.46.0:
   version "5.46.0"

@@ -5,5 +5,11 @@ module.exports = {
   ],
   plugins: [
     '@babel/transform-runtime',
+    [
+      './src/packages/i18n-babel-plugin/index.ts',
+      {
+        intlKeyPrefix: 'Yzl_test'
+      },
+    ],
   ],
 };

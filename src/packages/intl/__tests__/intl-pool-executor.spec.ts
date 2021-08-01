@@ -53,13 +53,13 @@ describe('test intl-pool-executor', () => {
       })
       .activate('group 1');
 
-    expect(executor.getMessage('App_Name', {
+    expect(executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     })).toStrictEqual('姓名: yuzhanglong');
 
     await executor.setLocal(LANGUAGE_MAP.en);
 
-    expect(executor.getMessage('App_Name', {
+    expect(executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     })).toStrictEqual('name: yuzhanglong');
   });
@@ -82,21 +82,21 @@ describe('test intl-pool-executor', () => {
       [LANGUAGE_MAP.en]: () => import('@/packages/intl/data/en-us-part-2.json')
     }).activate('group 2');
 
-    expect(executor.getMessage('App_Name', {
+    expect(executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     })).toStrictEqual('姓名: yuzhanglong');
 
-    expect(executor.getMessage('Your_Hobby', {
+    expect(executor.getMessage('Yzl_test_Hobby', {
       hobby: 'coding'
     })).toStrictEqual('爱好: coding');
 
     // 改变语言
     await executor.setLocal(LANGUAGE_MAP.en);
-    expect(executor.getMessage('App_Name', {
+    expect(executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     })).toStrictEqual('name: yuzhanglong');
 
-    expect(executor.getMessage('Your_Hobby', {
+    expect(executor.getMessage('Yzl_test_Hobby', {
       hobby: 'coding'
     })).toStrictEqual('hobby: coding');
   });
@@ -117,22 +117,22 @@ describe('test intl-pool-executor', () => {
       [LANGUAGE_MAP.zh]: () => import('@/packages/intl/data/zh-cn-part-2.json')
     }).activate('group 2');
 
-    expect(executor.getMessage('App_Name', {
+    expect(executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     })).toStrictEqual('姓名: yuzhanglong');
 
-    expect(executor.getMessage('Your_Hobby', {
+    expect(executor.getMessage('Yzl_test_Hobby', {
       hobby: 'coding'
     })).toStrictEqual('爱好: coding');
 
-    // 销毁 group 1， 我们接下来无法通过 App_Name 这个key 获取文案
+    // 销毁 group 1， 我们接下来无法通过 Yzl_test_Name 这个key 获取文案
     executor.deactivate('group 1');
 
     expect(() => {
-      executor.getMessage('App_Name', {
+      executor.getMessage('Yzl_test_Name', {
         name: 'yuzhanglong'
       });
-    }).toThrowError('the key \'App_Name\' was not found!');
+    }).toThrowError('the key \'Yzl_test_Name\' was not found!');
 
     // deactivate 不是将文案组从文案池中移除
     expect(executor.intlGroups.length).toStrictEqual(2);
@@ -187,7 +187,7 @@ describe('test intl-pool-executor', () => {
       })
       .activate('group 1');
 
-    expect(executor.getMessage('App_Name', {
+    expect(executor.getMessage('Yzl_test_Name', {
       name: 'yzl'
     })).toStrictEqual('姓名: yzl');
 

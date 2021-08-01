@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
+import { I18nWebpackPlugin } from '../src/packages/i18n-webpack-plugin';
 
 const config: webpack.Configuration = {
   mode: 'development',
@@ -21,6 +22,7 @@ const config: webpack.Configuration = {
       ],
     }),
     new HtmlWebpackPlugin(),
+    new I18nWebpackPlugin()
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

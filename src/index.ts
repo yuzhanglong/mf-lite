@@ -6,7 +6,7 @@ const initIntl = async () => {
 };
 
 initIntl().then(() => {
-  const msg = intl('App_Name', {
+  const msg = intl('Yzl_test_Name', {
     name: 'yuzhanglong',
   });
   console.log(msg);

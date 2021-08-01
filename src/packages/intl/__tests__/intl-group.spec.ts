@@ -37,10 +37,10 @@ describe('test intl packages', () => {
     await executor.loadIntlSource([LANGUAGE_MAP.zh, LANGUAGE_MAP.en]);
     await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
 
-    const msg1 = executor.getMessage('App_Name', {
+    const msg1 = executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     });
-    const msg2 = executor.getMessage('App_Age', {
+    const msg2 = executor.getMessage('Yzl_test_Age', {
       age: 20
     });
 
@@ -55,10 +55,10 @@ describe('test intl packages', () => {
     await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
     expect(executor.currentCachedFormatters).toStrictEqual({});
 
-    executor.getMessage('App_Name', {
+    executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     });
-    expect(executor.currentCachedFormatters.App_Name).toBeTruthy();
+    expect(executor.currentCachedFormatters.Yzl_test_Name).toBeTruthy();
   });
 
   test('test local change', async () => {
@@ -67,7 +67,7 @@ describe('test intl packages', () => {
 
     await executor.updateCurrentLocal(LANGUAGE_MAP.zh);
 
-    const msg1 = executor.getMessage('App_Name', {
+    const msg1 = executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     });
 
@@ -75,7 +75,7 @@ describe('test intl packages', () => {
 
     await executor.updateCurrentLocal(LANGUAGE_MAP.en);
 
-    const msg2 = executor.getMessage('App_Name', {
+    const msg2 = executor.getMessage('Yzl_test_Name', {
       name: 'yuzhanglong'
     });
 
