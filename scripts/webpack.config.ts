@@ -11,7 +11,16 @@ const config: webpack.Configuration = {
   },
   devtool: 'source-map',
   plugins: [
-    new HtmlWebpackPlugin(),
+    new webpack.ProvidePlugin({
+      'intl': [
+        path.resolve(
+          process.cwd(),
+          'src/packages/intl/intl-entry'
+        ),
+        'default'
+      ]
+    }),
+    new HtmlWebpackPlugin()
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
