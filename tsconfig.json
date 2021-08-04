@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "target": "ES2020",
+    "target": "ESNext",
     "moduleResolution": "node",
     "allowJs": true,
     "noEmit": true,
@@ -9,7 +9,7 @@
     "module": "CommonJS",
     "sourceMap": true,
     "lib": [
-      "ES2020",
+      "ESNext",
       "dom"
     ],
     "types": [
