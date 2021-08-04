@@ -1,4 +1,5 @@
-import { I18nChunkMap, LANGUAGE_MAP } from '@/packages/intl/common';
+import { LANGUAGE_MAP } from '@attachments/i18n';
+import { I18nChunkMap } from '@/common';
 
 const initIntl = async () => {
   await intl.setLocal(LANGUAGE_MAP.zh);

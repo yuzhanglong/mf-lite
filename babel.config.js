@@ -6,9 +6,10 @@ module.exports = {
   plugins: [
     '@babel/transform-runtime',
     [
-      './src/packages/i18n-babel-plugin/index.ts',
+      '@attachments/i18n-babel-plugin',
       {
-        intlKeyPrefix: 'Yzl_test'
+        intlKeyPrefix: 'Yzl_test',
+        compressPrefix: 'base',
       },
     ],
   ],

@@ -1,9 +1,9 @@
 import * as webpack from 'webpack';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
-import { I18nWebpackPlugin } from '../src/packages/i18n-webpack-plugin';
+import { I18nWebpackPlugin } from '@attachments/i18n-webpack-plugin';
 
-const config: webpack.Configuration = {
+const config = {
   mode: 'development',
   entry: './src/index.ts',
   output: {
@@ -16,7 +16,7 @@ const config: webpack.Configuration = {
       'intl': [
         path.resolve(
           process.cwd(),
-          'src/packages/intl/intl-entry',
+          'src/intl-entry',
         ),
         'default',
       ],
