@@ -1,3 +1,5 @@
+console.log(process.env.NODE_ENV);
+
 module.exports = {
   presets: [
     ['@babel/preset-env'],
@@ -5,12 +7,18 @@ module.exports = {
   ],
   plugins: [
     '@babel/transform-runtime',
-    [
-      '@attachments/i18n-babel-plugin',
-      {
-        intlKeyPrefix: 'Yzl_test',
-        compressPrefix: 'base',
-      },
-    ],
   ],
+  env: {
+    production: {
+      plugins: [
+        [
+          '@attachments/i18n-babel-plugin',
+          {
+            intlKeyPrefix: 'Yzl_test',
+            compressPrefix: 'base',
+          },
+        ],
+      ],
+    },
+  },
 };

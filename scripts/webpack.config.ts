@@ -3,8 +3,11 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
 import { I18nWebpackPlugin } from '@attachments/i18n-webpack-plugin';
 
+const env = process.env.NODE_ENV;
+const isProd = env === 'production';
+
 const config = {
-  mode: 'development',
+  mode: isProd ? 'production' : 'development',
   entry: './src/index.ts',
   output: {
     filename: '[name].[contenthash:8].js',
@@ -22,8 +25,8 @@ const config = {
       ],
     }),
     new HtmlWebpackPlugin(),
-    new I18nWebpackPlugin()
-  ],
+    isProd && new I18nWebpackPlugin(),
+  ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
