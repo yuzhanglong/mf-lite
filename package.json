@@ -3,39 +3,17 @@
   "license": "MIT",
   "version": "0.1.0",
   "devDependencies": {
-    "@attachments/i18n-babel-plugin": "^0.0.1",
-    "@attachments/i18n-webpack-plugin": "^0.0.1",
-    "@babel/core": "^7.14.8",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.8",
-    "@babel/preset-typescript": "^7.14.5",
-    "@babel/types": "^7.14.8",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
     "@types/node": "^16.4.6",
-    "@types/webpack": "^5.28.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
-    "babel-loader": "^8.2.2",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "html-webpack-plugin": "^5.3.2",
-    "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
     "ts-node": "^10.1.0",
-    "typescript": "^4.3.5",
-    "webpack": "^5.46.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "scripts": {
-    "dev:serve": "webpack serve --config scripts/webpack.config.ts --node-env development",
-    "prod:build": "rimraf dist && webpack --config scripts/webpack.config.ts --node-env production"
-  },
-  "dependencies": {
-    "mobx": "^6.3.2",
-    "@attachments/i18n": "^0.0.1"
+    "typescript": "^4.3.5"
   }
 }

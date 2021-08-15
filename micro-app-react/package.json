@@ -1,0 +1,36 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@babel/types": "^7.14.8",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "@types/webpack": "^5.28.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "react": "^17.0.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "dev:serve": "webpack serve --config scripts/webpack.config.ts --node-env development",
+    "prod:build": "rimraf dist && webpack --config scripts/webpack.config.ts --node-env production"
+  },
+  "dependencies": {
+    "antd": "^4.16.11",
+    "qiankun": "^2.4.6",
+    "react-dom": "^17.0.2",
+    "sass": "^1.37.5"
+  }
+}

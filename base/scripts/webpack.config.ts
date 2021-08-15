@@ -1,13 +1,15 @@
-import * as webpack from 'webpack';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
-import { I18nWebpackPlugin } from '@attachments/i18n-webpack-plugin';
+import HtmlWebpackPlugin = require('html-webpack-plugin');
+import { publicPath, sourcePath } from './path';
 
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
 const config = {
   mode: isProd ? 'production' : 'development',
+  devServer: {
+    historyApiFallback: true,
+  },
   entry: './src/index.ts',
   output: {
     filename: '[name].[contenthash:8].js',
@@ -15,32 +17,28 @@ const config = {
   },
   devtool: 'source-map',
   plugins: [
-    new webpack.ProvidePlugin({
-      'intl': [
-        path.resolve(
-          process.cwd(),
-          'src/intl-entry',
-        ),
-        'default',
-      ],
+    new HtmlWebpackPlugin({
+      template: path.resolve(publicPath, 'index.html'),
     }),
-    new HtmlWebpackPlugin(),
-    isProd && new I18nWebpackPlugin(),
   ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      '@': path.resolve(process.cwd(), 'src'),
+      '@': sourcePath,
     },
   },
   module: {
     rules: [
       {
         test: [/\.[jt]sx?$/],
-        include: [path.resolve(process.cwd(), './src')],
+        include: [sourcePath],
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
