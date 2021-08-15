@@ -2,6 +2,23 @@
 # yarn lockfile v1
 
 
+"@attachments/i18n-babel-plugin@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.nlark.com/@attachments/i18n-babel-plugin/download/@attachments/i18n-babel-plugin-0.0.1.tgz#cf6514e1d16af2d3b5200d383a642b71b3b698c3"
+  integrity sha1-z2UU4dFq8tO1IA04OmQrcbO2mMM=
+
+"@attachments/i18n-webpack-plugin@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.nlark.com/@attachments/i18n-webpack-plugin/download/@attachments/i18n-webpack-plugin-0.0.1.tgz#258b744fd7fa07d38a8c4bbb7e432b679e7cbcb4"
+  integrity sha1-JYt0T9f6B9OKjEu7fkMrZ558vLQ=
+
+"@attachments/i18n@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.nlark.com/@attachments/i18n/download/@attachments/i18n-0.0.1.tgz#84c93840273c1806b96158fb2fdfb1c39ca5933d"
+  integrity sha1-hMk4QCc8GAa5YVj7L9+xw5ylkz0=
+  dependencies:
+    intl-messageformat "^9.8.1"
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.nlark.com/@babel/code-frame/download/@babel/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -931,6 +948,45 @@
     js-yaml "^3.13.1"
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
+
+"@formatjs/ecma402-abstract@1.9.7":
+  version "1.9.7"
+  resolved "https://registry.nlark.com/@formatjs/ecma402-abstract/download/@formatjs/ecma402-abstract-1.9.7.tgz#92743737f6cfe16eb1666fe710121f8af26ecff5"
+  integrity sha1-knQ3N/bP4W6xZm/nEBIfivJuz/U=
+  dependencies:
+    "@formatjs/intl-localematcher" "0.2.20"
+    tslib "^2.1.0"
+
+"@formatjs/fast-memoize@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.nlark.com/@formatjs/fast-memoize/download/@formatjs/fast-memoize-1.2.0.tgz?cache=0&sync_timestamp=1628995841309&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40formatjs%2Ffast-memoize%2Fdownload%2F%40formatjs%2Ffast-memoize-1.2.0.tgz#1123bfcc5d21d761f15d8b1c32d10e1b6530355d"
+  integrity sha1-ESO/zF0h12HxXYscMtEOG2UwNV0=
+  dependencies:
+    tslib "^2.1.0"
+
+"@formatjs/icu-messageformat-parser@2.0.10":
+  version "2.0.10"
+  resolved "https://registry.nlark.com/@formatjs/icu-messageformat-parser/download/@formatjs/icu-messageformat-parser-2.0.10.tgz?cache=0&sync_timestamp=1628995841508&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40formatjs%2Ficu-messageformat-parser%2Fdownload%2F%40formatjs%2Ficu-messageformat-parser-2.0.10.tgz#aecf5714bc4a7fa57d04e4a51767c3f5a9ced17f"
+  integrity sha1-rs9XFLxKf6V9BOSlF2fD9anO0X8=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.9.7"
+    "@formatjs/icu-skeleton-parser" "1.2.11"
+    tslib "^2.1.0"
+
+"@formatjs/icu-skeleton-parser@1.2.11":
+  version "1.2.11"
+  resolved "https://registry.nlark.com/@formatjs/icu-skeleton-parser/download/@formatjs/icu-skeleton-parser-1.2.11.tgz#187a632e18b851f529bbf673a440b4523b18863e"
+  integrity sha1-GHpjLhi4UfUpu/ZzpEC0UjsYhj4=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.9.7"
+    tslib "^2.1.0"
+
+"@formatjs/intl-localematcher@0.2.20":
+  version "0.2.20"
+  resolved "https://registry.nlark.com/@formatjs/intl-localematcher/download/@formatjs/intl-localematcher-0.2.20.tgz?cache=0&sync_timestamp=1628995854353&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40formatjs%2Fintl-localematcher%2Fdownload%2F%40formatjs%2Fintl-localematcher-0.2.20.tgz#782aef53d1c1b6112ee67468dc59f9b8d1ba7b17"
+  integrity sha1-eCrvU9HBthEu5nRo3Fn5uNG6exc=
+  dependencies:
+    tslib "^2.1.0"
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
@@ -3188,6 +3244,15 @@ interpret@^2.2.0:
   resolved "https://registry.npm.taobao.org/interpret/download/interpret-2.2.0.tgz#1a78a0b5965c40a5416d007ad6f50ad27c417df9"
   integrity sha1-GnigtZZcQKVBbQB61vUK0nxBffk=
 
+intl-messageformat@^9.8.1:
+  version "9.9.0"
+  resolved "https://registry.nlark.com/intl-messageformat/download/intl-messageformat-9.9.0.tgz#83b05b7de934f3ac47e0805a24bab3bc41f13783"
+  integrity sha1-g7Bbfek086xH4IBaJLqzvEHxN4M=
+  dependencies:
+    "@formatjs/fast-memoize" "1.2.0"
+    "@formatjs/icu-messageformat-parser" "2.0.10"
+    tslib "^2.1.0"
+
 ip-regex@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/ip-regex/download/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
@@ -5295,6 +5360,11 @@ tslib@^2.0.3:
   version "2.3.0"
   resolved "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz?cache=0&sync_timestamp=1623450901878&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4=
+
+tslib@^2.1.0:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1628722580350&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
 
 tsutils@^3.21.0:
   version "3.21.0"
