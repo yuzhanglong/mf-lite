@@ -4,21 +4,16 @@ import './app';
 registerMicroApps([
   {
     name: 'VueMicroApp',
-    entry: 'http://localhost:10000',
+    entry: 'https://micro-fe.yuzzl.top/vue-micro-app',
     container: '#micro-app',
     activeRule: '/vue',
   },
   {
     name: 'ReactMicroApp',
-    entry: 'http://localhost:10001',
+    entry: 'https://micro-fe.yuzzl.top/react-micro-app',
     container: '#micro-app',
-    activeRule: '/vue',
+    activeRule: '/react',
   },
-], {
-  beforeLoad: () => {
-    console.log('before load!');
-    return Promise.resolve();
-  },
-});
+]);
 
 start();

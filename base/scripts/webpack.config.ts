@@ -8,7 +8,12 @@ const isProd = env === 'production';
 const config = {
   mode: isProd ? 'production' : 'development',
   devServer: {
+    allowedHosts: 'all',
     historyApiFallback: true,
+    static: publicPath,
+    client: {
+      webSocketURL: 'ws://localhost:8080/ws',
+    },
   },
   entry: './src/index.ts',
   output: {
