@@ -1,39 +1,41 @@
 import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
+import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const packageName = require('../package.json').name;
 
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
 const config = {
   mode: isProd ? 'production' : 'development',
-  devServer: {
-    allowedHosts: 'all',
-    historyApiFallback: true,
-    static: publicPath,
-    // client: {
-    //   webSocketURL: 'wss://localhost:8080/ws',
-    // },
-  },
-  entry: './src/index.ts',
-  output: {
-    filename: '[name].[contenthash:8].js',
-    chunkFilename: '[name].[contenthash:8].chunk.js',
-  },
+  entry: path.resolve(sourcePath, 'index.tsx'),
   devtool: 'source-map',
+  devServer: {
+    contentBase: publicPath,
+    disableHostCheck: true,
+    hot: true,
+    port: 8080,
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    sockHost: 'micro-fe.yuzzl.top',
+    sockPort: 80,
+  },
+  output: {
+    library: `${packageName}-[name]`,
+    libraryTarget: 'umd',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
-    // new ReactRefreshWebpackPlugin()
+    !isProd && new ReactRefreshPlugin(),
   ].filter(Boolean),
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    alias: {
-      '@': sourcePath,
-    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   module: {
     rules: [
@@ -53,3 +55,4 @@ const config = {
 };
 
 export default config;
+

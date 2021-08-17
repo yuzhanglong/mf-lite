@@ -10,14 +10,18 @@ const runProxy = async () => {
       proxyPass: 'http://localhost:8080',
     },
     {
-      location: '/vue-micro-app',
-      proxyPass: 'http://localhost:10000/vue-micro-app',
+      location: '/react-micro-app',
+      proxyPass: 'http://localhost:10000/react-micro-app',
     },
     {
-      location: '/react-micro-app',
-      proxyPass: 'http://localhost:10001/react-micro-app',
+      location: '/vue-micro-app',
+      proxyPass: 'http://localhost:10001/vue-micro-app',
     }
   );
+  server.addRule('micro-fe.yuzzl.top:80',{
+    location: '/',
+    proxyPass: 'http://localhost:8080',
+  });
   await server.initServers();
   await server.listen();
 };

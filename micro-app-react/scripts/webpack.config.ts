@@ -3,6 +3,8 @@ import HtmlWebpackPlugin = require('html-webpack-plugin');
 import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
+const packageName = require('../package.json').name;
+
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
@@ -11,6 +13,11 @@ const config = {
   entry: path.resolve(sourcePath, 'index.tsx'),
   devServer: {
     hot: true,
+    port: 10000,
+  },
+  output: {
+    library: `${packageName}-[name]`,
+    libraryTarget: 'umd'
   },
   plugins: [
     new HtmlWebpackPlugin({
