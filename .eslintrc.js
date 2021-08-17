@@ -30,8 +30,9 @@ module.exports = {
     'no-await-in-loop': 'off',
     'consistent-return': 'off',
     'no-restricted-syntax': 'off',
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'no-underscore-dangle': 'off',
   },
   settings: {
     'import/parsers': {

@@ -2,6 +2,8 @@ import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
@@ -11,9 +13,9 @@ const config = {
     allowedHosts: 'all',
     historyApiFallback: true,
     static: publicPath,
-    client: {
-      webSocketURL: 'ws://localhost:8080/ws',
-    },
+    // client: {
+    //   webSocketURL: 'wss://localhost:8080/ws',
+    // },
   },
   entry: './src/index.ts',
   output: {
@@ -25,6 +27,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
+    // new ReactRefreshWebpackPlugin()
   ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

@@ -1,45 +1,25 @@
 import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
+import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import { publicPath, sourcePath } from './path';
-
-const packageName = require('../package.json').name;
 
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
 const config = {
   mode: isProd ? 'production' : 'development',
+  entry: path.resolve(sourcePath, 'index.tsx'),
   devServer: {
-    allowedHosts: 'all',
-    historyApiFallback: true,
-    static: publicPath,
-    port: 10001,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-    client: {
-      webSocketURL: 'ws://localhost:10001/ws',
-    },
+    hot: true,
   },
-  entry: './src/index.ts',
-  output: {
-    filename: '[name].[contenthash:8].js',
-    chunkFilename: '[name].[contenthash:8].chunk.js',
-    publicPath: '/react-micro-app/',
-    library: `${packageName}-[name]`,
-    libraryTarget: 'umd'
-  },
-  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
-  ].filter(Boolean),
+    new ReactRefreshPlugin(),
+  ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    alias: {
-      '@': sourcePath,
-    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   module: {
     rules: [

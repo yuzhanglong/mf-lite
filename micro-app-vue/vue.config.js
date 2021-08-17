@@ -10,6 +10,8 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
+    public: '0.0.0.0',
+    sockPath: '/vue-micro-app/sockjs-node'
   },
   publicPath: '/vue-micro-app',
   configureWebpack: {
@@ -17,6 +19,6 @@ module.exports = {
       library: `${packageName}-[name]`,
       libraryTarget: 'umd',
       jsonpFunction: `webpackJsonp_${packageName}`,
-    },
+    }
   },
 };
