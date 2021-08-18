@@ -22,7 +22,7 @@ const config = {
       'Access-Control-Allow-Origin': '*',
     },
     sockHost: 'micro-fe.yuzzl.top',
-    sockPort: 80,
+    sockPort: 80
   },
   output: {
     library: `${packageName}-[name]`,

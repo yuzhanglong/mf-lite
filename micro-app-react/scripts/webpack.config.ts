@@ -11,13 +11,23 @@ const isProd = env === 'production';
 const config = {
   mode: isProd ? 'production' : 'development',
   entry: path.resolve(sourcePath, 'index.tsx'),
+  devtool: 'source-map',
   devServer: {
+    contentBase: publicPath,
+    disableHostCheck: true,
     hot: true,
     port: 10000,
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    sockHost: 'micro-fe.yuzzl.top',
+    sockPort: 10000,
   },
   output: {
     library: `${packageName}-[name]`,
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    publicPath: '/react-micro-app'
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "0.1.0",
   "devDependencies": {
-    "@attachments/proxy": "^0.0.1",
+    "@attachments/proxy": "^0.0.2",
     "@types/node": "^16.4.6",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",

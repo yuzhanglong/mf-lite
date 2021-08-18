@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom';
 import App from './App';
 
+console.log(document.getElementById('react-app'));
+
 const render = () => {
   ReactDOM.render(<App />, document.getElementById('react-app'));
 };

@@ -7,9 +7,7 @@ const render = () => {
   ReactDOM.render(<App />, document.getElementById('base-app'));
 };
 
-if (!window.__POWERED_BY_QIANKUN__) {
-  render();
-}
+render();
 
 registerMicroApps([
   {
