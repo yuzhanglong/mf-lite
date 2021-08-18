@@ -13,16 +13,17 @@ const config = {
   entry: path.resolve(sourcePath, 'index.tsx'),
   devtool: 'source-map',
   devServer: {
-    contentBase: publicPath,
-    disableHostCheck: true,
+    client: {
+      webSocketURL: 'wss://micro-fe.yuzzl.top/ws',
+    },
+    static: publicPath,
+    allowedHosts: 'all',
     hot: true,
     port: 8080,
     historyApiFallback: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
-    sockHost: 'micro-fe.yuzzl.top',
-    sockPort: 80
   },
   output: {
     library: `${packageName}-[name]`,
