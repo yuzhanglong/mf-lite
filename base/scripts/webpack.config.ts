@@ -14,7 +14,7 @@ const config = {
   devtool: 'source-map',
   devServer: {
     client: {
-      webSocketURL: 'wss://micro-fe.yuzzl.top/ws',
+      webSocketURL: 'ws://localhost:8080/ws',
     },
     static: publicPath,
     allowedHosts: 'all',

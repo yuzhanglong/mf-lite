@@ -6,7 +6,7 @@ interface AppProps {
 
 const App: React.FC<AppProps> = () => {
   return (
-    <div>App</div>
+    <div>hello world!</div>
   );
 };
 
