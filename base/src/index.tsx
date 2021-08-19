@@ -24,4 +24,6 @@ registerMicroApps([
   },
 ]);
 
-start();
+start({
+  prefetch: false,
+});
