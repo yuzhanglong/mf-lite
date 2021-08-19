@@ -16,7 +16,7 @@ const LayoutCmp: React.FC = () => {
           defaultOpenKeys={['sub1']}
           style={{ height: '100%', borderRight: 0 }}
         >
-          <SubMenu key='sub1' icon={<UserOutlined />} title='子应用将在右侧渲染'>
+          <SubMenu key='sub1' icon={<UserOutlined />} title='子应用将在右侧渲染!!!!'>
             <Menu.Item key='1'>micro-vue</Menu.Item>
             <Menu.Item key='2'>micro-react</Menu.Item>
           </SubMenu>

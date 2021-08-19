@@ -4,7 +4,7 @@ import LayoutCmp from './layout-cmp';
 
 const App: React.FC = () => {
   return (
-    <div>2222
+    <div>
       <LayoutCmp />
     </div>
   );

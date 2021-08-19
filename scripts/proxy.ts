@@ -19,14 +19,6 @@ const runProxy = async () => {
     }
   );
 
-  server.addRule(
-    'micro-fe.yuzzl.top:80',
-    {
-      location: '/',
-      proxyPass: 'http://localhost:8080',
-    }
-  );
-
   await server.initServers();
   await server.listen();
 };

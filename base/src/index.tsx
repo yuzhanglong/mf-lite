@@ -16,6 +16,12 @@ registerMicroApps([
     container: '#micro-app',
     activeRule: '/react',
   },
+  {
+    name: 'VueMicroApp',
+    entry: 'https://micro-fe.yuzzl.top/vue-micro-app',
+    container: '#micro-app',
+    activeRule: '/vue',
+  },
 ]);
 
 start();
