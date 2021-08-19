@@ -16,7 +16,7 @@ module.exports = {
   publicPath: '/vue-micro-app',
   configureWebpack: {
     output: {
-      library: `${packageName}-[name]`,
+      library: `${packageName}`,
       libraryTarget: 'umd',
       jsonpFunction: `webpackJsonp_${packageName}`,
     }

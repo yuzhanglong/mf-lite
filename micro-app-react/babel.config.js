@@ -13,6 +13,10 @@ module.exports = (api) => {
         },
       ],
       ['@babel/preset-typescript'],
-    ]
+    ],
+    // Applies the react-refresh Babel plugin on non-production modes only
+    // plugins: [
+    //   !api.env('production') && 'react-refresh/babel',
+    // ].filter(Boolean),
   };
 };

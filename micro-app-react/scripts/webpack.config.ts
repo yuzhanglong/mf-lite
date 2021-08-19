@@ -1,5 +1,6 @@
 import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
+import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
 const packageName = require('../package.json').name;
@@ -25,14 +26,16 @@ const config = {
     },
   },
   output: {
-    library: `${packageName}-[name]`,
+    library: `${packageName}`,
     libraryTarget: 'umd',
-    publicPath: '/react-micro-app/'
+    publicPath: '/react-micro-app/',
+    globalObject: 'window',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
-    })
+    }),
+    // !isProd && new ReactRefreshPlugin(),
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
