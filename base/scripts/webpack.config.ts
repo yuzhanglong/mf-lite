@@ -6,9 +6,6 @@ import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
 
-const { ModuleFederationPlugin } = require('webpack').container;
-
-
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
@@ -25,6 +22,10 @@ const config = {
 
     // asset/resource 模块以 [hash][ext][query] 文件名发送到输出目录
     assetModuleFilename: `${FILE_PREFIX}/[hash][ext][query]`,
+  },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
   },
   optimization: {
     runtimeChunk: 'single',
@@ -66,20 +67,6 @@ const config = {
       chunkFilename: `${CSS_PREFIX}/${isProd ? '[id].[contenthash].css' : '[id].css'}`,
       ignoreOrder: true,
     }),
-    // new ModuleFederationPlugin({
-    //   name: 'base-app',
-    //   shared: {
-    //     'react': {
-    //       requiredVersion: false,
-    //     },
-    //     'react-dom': {
-    //       requiredVersion: false,
-    //     },
-    //     'react-router-dom': {
-    //       requiredVersion: false,
-    //     },
-    //   },
-    // }),
   ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],

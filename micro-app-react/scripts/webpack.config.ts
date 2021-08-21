@@ -36,6 +36,10 @@ const config = {
     }),
     // !isProd && new ReactRefreshPlugin(),
   ],
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },

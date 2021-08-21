@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 interface AppProps {
 
@@ -10,5 +11,6 @@ const App: React.FC<AppProps> = () => {
   );
 };
 
-export default App;
-
+export const render = () => {
+  ReactDOM.render(<App />, document.getElementById('react-app'));
+};
