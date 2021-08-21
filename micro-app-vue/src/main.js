@@ -3,8 +3,10 @@
 import { createApp } from 'vue';
 import App from './App';
 
+let el = null;
+
 function render() {
-  createApp(App).mount('#micro-vue-app');
+  el = createApp(App).mount('#micro-vue-app');
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -35,4 +37,5 @@ export async function unmount() {
  * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
  */
 export async function update() {
+  el.$forceUpdate();
 }

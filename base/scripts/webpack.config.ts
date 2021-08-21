@@ -2,10 +2,12 @@ import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
 import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
+
+const { ModuleFederationPlugin } = require('webpack').container;
+
 
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
@@ -29,18 +31,6 @@ const config = {
     minimize: isProd,
     splitChunks: {
       chunks: 'initial',
-      cacheGroups: {
-        uiVendors: {
-          name: 'initial-ui-vendors',
-          test: /react\/|react-dom\/|mobx-react\/|mobx\/|react-router\/|react-router-dom\/|axios\//,
-          enforce: true,
-        },
-        antd: {
-          name: 'initial-antd',
-          test: /antd\/es|antd\/lib|rc-.*/,
-          enforce: true,
-        },
-      },
     },
     minimizer: [
       new TerserWebpackPlugin({
@@ -50,9 +40,6 @@ const config = {
           },
         },
         extractComments: false,
-      }),
-      new BundleAnalyzerPlugin({
-        analyzerPort: 8000,
       }),
     ],
   },
@@ -79,6 +66,20 @@ const config = {
       chunkFilename: `${CSS_PREFIX}/${isProd ? '[id].[contenthash].css' : '[id].css'}`,
       ignoreOrder: true,
     }),
+    // new ModuleFederationPlugin({
+    //   name: 'base-app',
+    //   shared: {
+    //     'react': {
+    //       requiredVersion: false,
+    //     },
+    //     'react-dom': {
+    //       requiredVersion: false,
+    //     },
+    //     'react-router-dom': {
+    //       requiredVersion: false,
+    //     },
+    //   },
+    // }),
   ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -101,7 +102,7 @@ const config = {
         ],
       },
     ],
-  }
+  },
 };
 
 export default config;

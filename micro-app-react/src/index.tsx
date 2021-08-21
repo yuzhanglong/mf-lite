@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import App from './App';
 
-console.log(document.getElementById('react-app'));
+const AppCmp = <App />;
 
 const render = () => {
-  ReactDOM.render(<App />, document.getElementById('react-app'));
+  ReactDOM.render(AppCmp, document.getElementById('react-app'));
 };
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -37,5 +37,5 @@ export async function unmount() {
  * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
  */
 export async function update() {
-  console.log('react app update');
+  ReactDOM.render(AppCmp, document.getElementById('react-app'));
 }

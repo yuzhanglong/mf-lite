@@ -1,6 +1,5 @@
 import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
-import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
 const packageName = require('../package.json').name;
