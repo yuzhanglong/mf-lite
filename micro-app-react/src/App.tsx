@@ -1,5 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// @ts-ignore
+import React from 'base_app/react';
+// @ts-ignore
+import ReactDOM from 'base_app/react-dom';
 
 interface AppProps {
 

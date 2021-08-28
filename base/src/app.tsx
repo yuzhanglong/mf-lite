@@ -1,7 +1,8 @@
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { useRoutes } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import GlobalStyles from '~src/components/GlobalStyles';
 import '~src/mixins/chartjs';
 import theme from '~src/theme';
@@ -20,4 +21,9 @@ const App = () => {
   );
 };
 
-export default App;
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('base-app'));
+

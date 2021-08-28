@@ -1,7 +1,10 @@
 import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
+
+import TerserWebpackPlugin = require('terser-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
+const { ModuleFederationPlugin } = require('webpack').container;
 const packageName = require('../package.json').name;
 
 const env = process.env.NODE_ENV;
@@ -27,19 +30,20 @@ const config = {
   output: {
     library: `${packageName}`,
     libraryTarget: 'umd',
-    publicPath: '/react-micro-app/',
-    globalObject: 'window',
+    publicPath: '/react-micro-app/'
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
+    new ModuleFederationPlugin({
+      name: 'micro-react-app',
+      remotes: {
+        'base_app': `base_app@https://micro-fe.yuzzl.top/base-entry.js`,
+      },
+    }),
     // !isProd && new ReactRefreshPlugin(),
   ],
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM'
-  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
@@ -56,6 +60,23 @@ const config = {
         test: /\.(sa|sc|c)ss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+    ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    minimize: isProd,
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimizer: [
+      new TerserWebpackPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
     ],
   },
 };

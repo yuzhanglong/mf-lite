@@ -8,6 +8,7 @@ import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 
 const env = process.env.NODE_ENV;
@@ -30,11 +31,6 @@ const config = {
     // 公共路径
     publicPath: '/',
   },
-  // externals: {
-  //   'react': 'React',
-  //   'react-dom': 'ReactDOM',
-  //   '@material-ui/core': 'MaterialUI',
-  // },
   optimization: {
     runtimeChunk: 'single',
     minimize: isProd,
@@ -69,13 +65,22 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
+    new ModuleFederationPlugin({
+      name: 'base_app',
+      library: { type: 'global', name: 'base_app' },
+      filename: 'base-entry.js',
+      exposes: {
+        './react': path.resolve(sourcePath, 'externals', 'react.ts'),
+        './react-dom': path.resolve(sourcePath, 'externals', 'react-dom.ts'),
+      },
+    }),
     !isProd && new ReactRefreshPlugin(),
     new MiniCssExtractPlugin({
       filename: `${CSS_PREFIX}/${isProd ? '[name].[contenthash].css' : '[name].css'}`,
       chunkFilename: `${CSS_PREFIX}/${isProd ? '[id].[contenthash].css' : '[id].css'}`,
       ignoreOrder: true,
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en/),
   ].filter(Boolean),
   resolve: {
