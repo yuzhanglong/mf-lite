@@ -4,7 +4,7 @@ import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import webpack = require('webpack');
-import { publicPath, sourcePath } from './path';
+import { externalPath, publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');

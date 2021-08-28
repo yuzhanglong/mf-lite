@@ -1,3 +1,3 @@
 interface Window {
-  __POWERED_BY_QIANKUN__: boolean
+  __POWERED_BY_QIANKUN__: boolean;
 }
