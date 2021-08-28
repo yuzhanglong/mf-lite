@@ -1,23 +1,23 @@
-import React, { Suspense } from 'react';
-import { renderRoutes } from 'react-router-config';
-import { BrowserRouter } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import { routes } from './router';
-import 'antd/dist/antd.css';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import { useRoutes } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core';
+import { Suspense } from 'react';
+import GlobalStyles from '~src/components/GlobalStyles';
+import '~src/mixins/chartjs';
+import theme from '~src/theme';
+import routes from '~src/routes';
 
-const App: React.FC = () => {
+const App = () => {
+  const routing = useRoutes(routes);
+
   return (
-    <Suspense fallback={null}>
-      <BrowserRouter>
-        {renderRoutes(routes)}
-      </BrowserRouter>
-    </Suspense>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Suspense fallback={null}>
+        {routing}
+      </Suspense>
+    </ThemeProvider>
   );
 };
 
-const render = () => {
-  ReactDOM.render(<App />, document.getElementById('base-app'));
-};
-
-render();
-
+export default App;

@@ -1,5 +1,5 @@
 import React from 'react';
-import MicroApp from './micro-app';
+import MicroApp from '../utils/micro-app';
 
 interface ReactMicroWrapperProps {
 

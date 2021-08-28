@@ -33,6 +33,9 @@
     "qiankun": "^2.4.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.37.5"
+    "sass": "^1.37.5",
+    "@material-ui/core": "^5.0.0-beta.5",
+    "@material-ui/icons": "^5.0.0-alpha.28",
+    "@material-ui/styles": "^4.10.0"
   }
 }

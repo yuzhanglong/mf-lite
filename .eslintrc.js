@@ -34,6 +34,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     'no-underscore-dangle': 'off',
     'import/no-cycle': 'off',
+    'import/no-unresolved': 'off',
   },
   settings: {
     'import/parsers': {

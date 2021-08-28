@@ -8,6 +8,11 @@
       "dom.iterable",
       "esnext"
     ],
+    "paths": {
+      "~src/*": [
+        "./*"
+      ]
+    },
     "noImplicitAny": true,
     "allowJs": true,
     "skipLibCheck": true,

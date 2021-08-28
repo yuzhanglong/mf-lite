@@ -3,8 +3,12 @@ import HtmlWebpackPlugin = require('html-webpack-plugin');
 import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import webpack = require('webpack');
 import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
+
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
@@ -22,16 +26,20 @@ const config = {
 
     // asset/resource 模块以 [hash][ext][query] 文件名发送到输出目录
     assetModuleFilename: `${FILE_PREFIX}/[hash][ext][query]`,
+
+    // 公共路径
+    publicPath: '/',
   },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-  },
+  // externals: {
+  //   'react': 'React',
+  //   'react-dom': 'ReactDOM',
+  //   '@material-ui/core': 'MaterialUI',
+  // },
   optimization: {
     runtimeChunk: 'single',
     minimize: isProd,
     splitChunks: {
-      chunks: 'initial',
+      chunks: 'all',
     },
     minimizer: [
       new TerserWebpackPlugin({
@@ -67,9 +75,14 @@ const config = {
       chunkFilename: `${CSS_PREFIX}/${isProd ? '[id].[contenthash].css' : '[id].css'}`,
       ignoreOrder: true,
     }),
+    new BundleAnalyzerPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en/),
   ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      '~src': sourcePath,
+    },
   },
   module: {
     rules: [
