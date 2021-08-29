@@ -4,8 +4,9 @@ import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import webpack = require('webpack');
-import { externalPath, publicPath, sourcePath } from './path';
+import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
+import { getMfExposes } from './get-mf-exposes';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ModuleFederationPlugin } = require('webpack').container;
@@ -36,6 +37,33 @@ const config = {
     minimize: isProd,
     splitChunks: {
       chunks: 'all',
+      cacheGroups: {
+        reactVendors: {
+          name: 'initial-react-vendors',
+          test: /react\/|react-dom\/|react-router\/|react-router-dom\/|axios/,
+          priority: 20,
+          enforce: true,
+        },
+        materialUiComponents: {
+          name: 'initial-material-ui-components-vendors',
+          test: /@material-ui\/core/,
+          priority: 20,
+          enforce: true,
+        },
+        materialUiIcons: {
+          name: 'initial-material-ui-icons-vendors',
+          test: /@material-ui\/icons/,
+          priority: 20,
+          enforce: true
+        },
+        materialUiOthers: {
+          name: 'initial-material-ui-others-vendors',
+          test: /@material-ui\/*/,
+          priority: 10,
+          enforce: true
+        },
+      },
+
     },
     minimizer: [
       new TerserWebpackPlugin({
@@ -67,12 +95,12 @@ const config = {
     }),
     new ModuleFederationPlugin({
       name: 'base_app',
-      library: { type: 'global', name: 'base_app' },
-      filename: 'base-entry.js',
-      exposes: {
-        './react': path.resolve(sourcePath, 'externals', 'react.ts'),
-        './react-dom': path.resolve(sourcePath, 'externals', 'react-dom.ts'),
+      library: {
+        type: 'global',
+        name: 'base_app',
       },
+      filename: 'base-entry.js',
+      exposes: getMfExposes(),
     }),
     !isProd && new ReactRefreshPlugin(),
     new MiniCssExtractPlugin({
@@ -80,7 +108,7 @@ const config = {
       chunkFilename: `${CSS_PREFIX}/${isProd ? '[id].[contenthash].css' : '[id].css'}`,
       ignoreOrder: true,
     }),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en/),
   ].filter(Boolean),
   resolve: {
