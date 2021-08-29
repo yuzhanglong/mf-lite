@@ -109,7 +109,9 @@ const config = {
       exposes: getModuleFederationExposes([
         'react',
         'react-dom',
+        'react',
         '@material-ui/core',
+        'react/jsx-dev-runtime'
       ]),
     }),
     !isProd && new ReactRefreshPlugin(),

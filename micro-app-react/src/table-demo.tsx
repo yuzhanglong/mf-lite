@@ -1,5 +1,5 @@
-import React from 'base_app/react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from 'base_app/@material-ui/core';
+import React from 'react';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
   return { name, calories, fat, carbs, protein };

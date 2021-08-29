@@ -2,6 +2,7 @@ import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
 
 import TerserWebpackPlugin = require('terser-webpack-plugin');
+import { NormalModuleReplacementPlugin } from 'webpack';
 import { publicPath, sourcePath } from './path';
 
 const { ModuleFederationPlugin } = require('webpack').container;
@@ -34,6 +35,12 @@ const config = {
     publicPath: '/react-micro-app/',
   },
   plugins: [
+    new NormalModuleReplacementPlugin(
+      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$/,
+      (v: any) => {
+        // eslint-disable-next-line no-param-reassign
+        v.request = `base_app/${v.request}`;
+      }),
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
