@@ -1,3 +1,5 @@
+const { moduleFederationRemotes } = require('./scripts/webpack.config');
+
 module.exports = (api) => {
   // This caches the Babel config
   api.cache.using(() => process.env.NODE_ENV);
@@ -13,6 +15,14 @@ module.exports = (api) => {
         },
       ],
       ['@babel/preset-typescript'],
+    ],
+    plugins: [
+      [
+        './scripts/babel-plugin-module-federation.ts',
+        {
+          remotes: moduleFederationRemotes,
+        },
+      ],
     ],
     // Applies the react-refresh Babel plugin on non-production modes only
     // plugins: [

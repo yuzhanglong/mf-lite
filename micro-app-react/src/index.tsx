@@ -1,4 +1,4 @@
-const App = import('./App');
+const App = import('./app');
 
 
 const render = () => {

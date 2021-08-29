@@ -1,12 +1,14 @@
 declare module 'base_app/react' {
-  import React from 'react';
-
-  export default React;
+  export = React
 }
 
 
 declare module 'base_app/react-dom' {
-  import ReactDOM from 'react-dom';
+  export = ReactDOM
+}
 
-  export default ReactDOM;
+declare module 'base_app/@material-ui/core' {
+  import MaterialUI from '@material-ui/core';
+
+  export = MaterialUI
 }

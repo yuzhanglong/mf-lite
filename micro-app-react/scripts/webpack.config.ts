@@ -5,6 +5,7 @@ import TerserWebpackPlugin = require('terser-webpack-plugin');
 import { publicPath, sourcePath } from './path';
 
 const { ModuleFederationPlugin } = require('webpack').container;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const packageName = require('../package.json').name;
 
 const env = process.env.NODE_ENV;
@@ -30,7 +31,7 @@ const config = {
   output: {
     library: `${packageName}`,
     libraryTarget: 'umd',
-    publicPath: '/react-micro-app/'
+    publicPath: '/react-micro-app/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -41,6 +42,9 @@ const config = {
       remotes: {
         'base_app': `base_app@https://micro-fe.yuzzl.top/base-entry.js`,
       },
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
     }),
     // !isProd && new ReactRefreshPlugin(),
   ],
