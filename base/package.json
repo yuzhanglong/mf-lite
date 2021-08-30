@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@attachments/i18n": "0.0.5-alpha.0",
     "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
@@ -29,7 +31,7 @@
     "typescript": "^4.3.5",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "4.0.0-rc.1"
+    "webpack-dev-server": "4.0.0"
   },
   "scripts": {
     "dev:serve": "webpack serve --config scripts/webpack.config.ts --node-env development",
@@ -47,6 +49,7 @@
     "history": "^5.0.0",
     "install": "^0.13.0",
     "lodash": "^4.17.19",
+    "mobx": "^6.3.2",
     "moment": "^2.27.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",

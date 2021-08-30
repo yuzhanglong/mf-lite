@@ -1,6 +1,5 @@
 import * as path from 'path';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
-import ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import * as webpack from 'webpack';
@@ -8,7 +7,7 @@ import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
 import { getModuleFederationExposes } from './get-module-federation-exposes';
 
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 
@@ -40,7 +39,7 @@ const config = {
       cacheGroups: {
         thirdVendors: {
           name: 'initial-third-vendors',
-          test: /moment|lodash/,
+          test: /moment|lodash|mobx/,
           priority: 20,
           enforce: true,
         },
@@ -111,16 +110,19 @@ const config = {
         'react-dom',
         'react',
         '@material-ui/core',
-        'react/jsx-dev-runtime'
+        'react/jsx-dev-runtime',
+        'mobx',
       ]),
     }),
-    !isProd && new ReactRefreshPlugin(),
     new MiniCssExtractPlugin({
       filename: `${CSS_PREFIX}/${isProd ? '[name].[contenthash].css' : '[name].css'}`,
       chunkFilename: `${CSS_PREFIX}/${isProd ? '[id].[contenthash].css' : '[id].css'}`,
       ignoreOrder: true,
     }),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerPort: 12000,
+    }),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en/),
   ].filter(Boolean),
   resolve: {

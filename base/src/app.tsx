@@ -7,10 +7,10 @@ import GlobalStyles from '~src/components/GlobalStyles';
 import '~src/mixins/chartjs';
 import theme from '~src/theme';
 import routes from '~src/routes';
+import { initIntl } from '~src/i18n';
 
 const App = () => {
   const routing = useRoutes(routes);
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -21,9 +21,21 @@ const App = () => {
   );
 };
 
-ReactDOM.render((
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-), document.getElementById('base-app'));
+const reactRenderer = () => {
+  ReactDOM.render((
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  ), document.getElementById('base-app'));
+};
+
+const beforeAppStart = async () => {
+  await initIntl();
+};
+
+beforeAppStart()
+  .then(() => {
+    reactRenderer();
+  });
+
 

@@ -16,7 +16,7 @@ module.exports = (api) => {
     ],
     // Applies the react-refresh Babel plugin on non-production modes only
     plugins: [
-      !api.env('production') && 'react-refresh/babel',
+      ['@babel/plugin-transform-runtime'],
     ].filter(Boolean),
   };
 };
