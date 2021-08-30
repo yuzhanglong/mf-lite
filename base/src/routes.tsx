@@ -12,7 +12,7 @@ const routes = [
     path: '/app',
     element: <DashboardLayout />,
     children: [
-      { path: 'dashboard', element: <Dashboard /> },
+      { path: 'dashboard', element: <div>dash board!</div> },
       { path: 'react', element: <ReactMicroApp /> },
       { path: 'vue', element: <VueMicroApp /> },
     ],

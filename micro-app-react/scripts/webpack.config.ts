@@ -52,8 +52,8 @@ const config = {
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
+      analyzerPort: 12000,
     }),
-    // !isProd && new ReactRefreshPlugin(),
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],

@@ -16,14 +16,6 @@ module.exports = (api) => {
       ],
       ['@babel/preset-typescript'],
     ],
-    plugins: [
-      [
-        './scripts/babel-plugin-module-federation.ts',
-        {
-          remotes: moduleFederationRemotes,
-        },
-      ],
-    ],
     // Applies the react-refresh Babel plugin on non-production modes only
     // plugins: [
     //   !api.env('production') && 'react-refresh/babel',

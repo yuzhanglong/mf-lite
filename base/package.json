@@ -5,11 +5,12 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
     "@babel/types": "^7.14.8",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-rc.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-rc.5",
     "@types/fs-extra": "^9.0.12",
     "@types/react": "^17.0.18",
     "@types/react-dom": "^17.0.9",
@@ -29,13 +30,14 @@
     "typescript": "^4.3.5",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "4.0.0-rc.1"
+    "webpack-dev-server": "^4.0.0"
   },
   "scripts": {
     "dev:serve": "webpack serve --config scripts/webpack.config.ts --node-env development",
     "prod:build": "rimraf dist && webpack --config scripts/webpack.config.ts --node-env production"
   },
   "dependencies": {
+    "@attachments/i18n": "0.0.5-alpha.0",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-beta.5",
