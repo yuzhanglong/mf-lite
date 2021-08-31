@@ -1,3 +1,4 @@
+
 declare global {
   const intl: (name: string, args?: Record<any, any>) => string;
 

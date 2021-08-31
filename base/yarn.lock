@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@attachments/i18n@0.0.5-alpha.0":
-  version "0.0.5-alpha.0"
-  resolved "https://registry.nlark.com/@attachments/i18n/download/@attachments/i18n-0.0.5-alpha.0.tgz?cache=0&sync_timestamp=1630309164504&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40attachments%2Fi18n%2Fdownload%2F%40attachments%2Fi18n-0.0.5-alpha.0.tgz#3b3b9bffacc2ad942581fe8066b27ab91106ff13"
-  integrity sha1-Ozub/6zCrZQlgf6AZrJ6uREG/xM=
+"@attachments/i18n@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.nlark.com/@attachments/i18n/download/@attachments/i18n-0.0.5.tgz?cache=0&sync_timestamp=1630411167401&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40attachments%2Fi18n%2Fdownload%2F%40attachments%2Fi18n-0.0.5.tgz#df31ab4c5f38da870036b4777a9e69b5c141d210"
+  integrity sha1-3zGrTF842ocANrR3ep5ptcFB0hA=
   dependencies:
     intl-messageformat "^9.8.1"
 
@@ -3387,6 +3387,11 @@ mkdirp@^0.5.5:
   integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
   dependencies:
     minimist "^1.2.5"
+
+mobx-react-lite@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/mobx-react-lite/download/mobx-react-lite-3.2.0.tgz#331d7365a6b053378dfe9c087315b4e41c5df69f"
+  integrity sha1-Mx1zZaawUzeN/pwIcxW05Bxd9p8=
 
 mobx@^6.3.2:
   version "6.3.2"

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { experimentalStyled } from '@material-ui/core';
+import { observer } from 'mobx-react-lite';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
+import LocalSelector from '~src/components/local-selector';
 
 const DashboardLayoutRoot = experimentalStyled('div')(
   ({ theme }) => ({
@@ -36,7 +38,7 @@ const DashboardLayoutContent = experimentalStyled('div')({
   flex: '1 1 auto',
   height: '100%',
   overflow: 'auto',
-  margin: '25px',
+  padding: '25px',
 });
 
 const DashboardLayout = () => {
@@ -52,6 +54,10 @@ const DashboardLayout = () => {
       <DashboardLayoutWrapper>
         <DashboardLayoutContainer>
           <DashboardLayoutContent>
+            <LocalSelector />
+            {intl('Yzl_test_Name', {
+              name: 'yuzhanglong',
+            })}
             <Outlet />
           </DashboardLayoutContent>
         </DashboardLayoutContainer>
@@ -60,4 +66,4 @@ const DashboardLayout = () => {
   );
 };
 
-export default DashboardLayout;
+export default observer(DashboardLayout);

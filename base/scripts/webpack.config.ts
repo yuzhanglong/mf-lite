@@ -112,6 +112,11 @@ const config = {
         '@material-ui/core',
         'react/jsx-dev-runtime',
         'mobx',
+        'mobx-react-lite',
+        {
+          path: './global-store',
+          resolve: path.resolve(sourcePath, 'store', 'global-store.ts'),
+        },
       ]),
     }),
     new MiniCssExtractPlugin({

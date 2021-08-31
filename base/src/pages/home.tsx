@@ -1,7 +1,7 @@
 import {
   Box,
   Container,
-  Grid
+  Grid,
 } from '@material-ui/core';
 import Budget from '~src/components/dashboard//Budget';
 import LatestOrders from '~src/components/dashboard//LatestOrders';

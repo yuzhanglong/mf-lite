@@ -1,16 +1,16 @@
 import { Navigate } from 'react-router-dom';
 import React from 'react';
-import DashboardLayout from '~src/components/DashboardLayout';
+import HomeLayout from '~src/components/DashboardLayout';
 import MainLayout from '~src/components/MainLayout';
 
-const Dashboard = React.lazy(() => import('~src/pages/dashboard'));
+const Dashboard = React.lazy(() => import('~src/pages/temp-home'));
 const VueMicroApp = React.lazy(() => import('~src/micro-apps/vue-micro-wrapper'));
 const ReactMicroApp = React.lazy(() => import('~src/micro-apps/react-micro-wrapper'));
 
 const routes = [
   {
     path: '/app',
-    element: <DashboardLayout />,
+    element: <HomeLayout />,
     children: [
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'react', element: <ReactMicroApp /> },

@@ -2,24 +2,40 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
-import React, { Suspense } from 'react';
+import React, { Suspense, useContext } from 'react';
+import { observer } from 'mobx-react-lite';
 import GlobalStyles from '~src/components/GlobalStyles';
 import '~src/mixins/chartjs';
-import theme from '~src/theme';
+import { getThemes } from '~src/theme';
 import routes from '~src/routes';
-import { initIntl } from '~src/i18n';
+import { initIntl } from '~src/utils/init-intl';
+import { GlobalContext } from './utils/global-context';
+import { globalStore } from '~src/store/global-store';
 
-const App = () => {
+const ThemeContext = observer(() => {
   const routing = useRoutes(routes);
+  const store = useContext(GlobalContext);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={getThemes(store.globalStore.local)}>
       <GlobalStyles />
       <Suspense fallback={null}>
         {routing}
       </Suspense>
     </ThemeProvider>
   );
-};
+});
+
+const App = observer(() => {
+  return (
+    <GlobalContext.Provider
+      value={{
+        globalStore: globalStore,
+      }}>
+      <ThemeContext />
+    </GlobalContext.Provider>
+  );
+});
+
 
 const reactRenderer = () => {
   ReactDOM.render((

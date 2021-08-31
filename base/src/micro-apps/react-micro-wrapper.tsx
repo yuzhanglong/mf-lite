@@ -8,7 +8,6 @@ interface ReactMicroWrapperProps {
 const ReactMicroWrapper: React.FC<ReactMicroWrapperProps> = () => {
   return (
     <div>
-      react micro app
       <MicroApp microAppConfig={{
         name: 'ReactMicroApp',
         entry: 'https://micro-fe.yuzzl.top/react-micro-app',

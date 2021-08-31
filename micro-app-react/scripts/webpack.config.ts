@@ -36,7 +36,7 @@ const config = {
   },
   plugins: [
     new NormalModuleReplacementPlugin(
-      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$/,
+      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
       (v: any) => {
         // eslint-disable-next-line no-param-reassign
         v.request = `base_app/${v.request}`;

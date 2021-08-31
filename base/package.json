@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@attachments/i18n": "0.0.5-alpha.0",
+    "@attachments/i18n": "^0.0.5",
     "@babel/core": "^7.15.0",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
@@ -50,6 +50,7 @@
     "install": "^0.13.0",
     "lodash": "^4.17.19",
     "mobx": "^6.3.2",
+    "mobx-react-lite": "^3.2.0",
     "moment": "^2.27.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
