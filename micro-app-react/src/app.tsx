@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from '@material-ui/core';
-import { globalStore } from 'base_app/global-store';
+// import { globalStore } from 'base_app/global-store';
 import { observer } from 'mobx-react-lite';
 
 const App: React.FC = observer(() => {
-  console.log(globalStore);
+  // console.log(globalStore);
   return (
     <div>
       <Suspense fallback={null}>

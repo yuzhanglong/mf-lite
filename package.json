@@ -28,8 +28,7 @@
     "dev:proxy": "ts-node scripts/proxy.ts",
     "dev:micro-base": "cd base && yarn dev:serve",
     "dev:micro-react": "cd micro-app-react && yarn dev:serve",
-    "dev:micro-vue": "cd micro-app-vue && yarn dev:serve",
-    "deb:micro-federation": "cd mf-provider && yarn dev:serve",
+    "dev:micro-federation": "cd mf-provider && yarn dev:serve",
     "dev": "npm-run-all --parallel dev:*"
   }
 }

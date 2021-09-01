@@ -23,7 +23,7 @@ const runProxy = async () => {
     'remote.yuzzl.top',
     {
       location: '/',
-      proxyPass: 'http://localhost:3002'
+      proxyPass: 'http://localhost:8081'
     }
   );
 

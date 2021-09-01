@@ -96,8 +96,9 @@ const config = {
   },
   plugins: [
     new NormalModuleReplacementPlugin(
-      /^(react)$|^(react-dom)$/,
+      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$|^(moment)$|^(lodash)$/,
       (v: any) => {
+        console.log(v.request);
         // eslint-disable-next-line no-param-reassign
         v.request = `mf_provider/${v.request}`;
       }),

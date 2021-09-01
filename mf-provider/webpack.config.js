@@ -28,7 +28,7 @@ module.exports = {
   },
   output: {
     // 公共路径
-    publicPath: '/',
+    publicPath: 'auto',
   },
   devServer: {
     allowedHosts: 'all',
@@ -41,12 +41,18 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "mf_provider",
-      filename: "mf_provider_entry.js",
+      name: 'mf_provider',
+      filename: 'mf_provider_entry.js',
       exposes: getModuleFederationExposes([
         'react',
-        'react-dom'
-      ])
+        'react-dom',
+        '@material-ui/core',
+        'react/jsx-dev-runtime',
+        'mobx',
+        'mobx-react-lite',
+        'moment',
+        'lodash',
+      ]),
     }),
   ],
 };

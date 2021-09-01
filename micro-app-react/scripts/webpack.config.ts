@@ -36,7 +36,7 @@ const config = {
   },
   plugins: [
     new NormalModuleReplacementPlugin(
-      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
+      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$|^(moment)$|^(lodash)$/,
       (v: any) => {
         // eslint-disable-next-line no-param-reassign
         v.request = `mf_provider/${v.request}`;
@@ -47,9 +47,9 @@ const config = {
     new ModuleFederationPlugin({
       name: 'micro-react-app',
       remotes: {
-        'base_app': `base_app@https://micro-fe.yuzzl.top/base-entry.js`,
+        'base_app': `base_app@https://micro-fe.yuzzl.top/base_app_entry.js`,
         'mf_provider': `mf_provider@https://remote.yuzzl.top/mf_provider_entry.js`,
-      }
+      },
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
