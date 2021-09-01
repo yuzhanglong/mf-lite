@@ -96,9 +96,8 @@ const config = {
   },
   plugins: [
     new NormalModuleReplacementPlugin(
-      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$|^(moment)$|^(lodash)$/,
+      /^(react)$|(react-dom)$|(^@material-ui\/core)|(^@material-ui\/styles)|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$|^(moment)$|^(react-router)$|^(react-router-dom)/,
       (v: any) => {
-        console.log(v.request);
         // eslint-disable-next-line no-param-reassign
         v.request = `mf_provider/${v.request}`;
       }),
@@ -142,6 +141,35 @@ const config = {
         include: [sourcePath],
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env'],
+              // Enable development transform of React with new automatic runtime
+              [
+                '@babel/preset-react',
+                {
+                  runtime: 'automatic',
+                },
+              ],
+              ['@babel/preset-typescript'],
+            ],
+            // Applies the react-refresh Babel plugin on non-production modes only
+            plugins: [
+              ['@babel/plugin-transform-runtime'],
+              [
+                // eslint-disable-next-line import/no-dynamic-require,global-require
+                require(path.resolve(__dirname, './babel-plugin-import/index.js')),
+                {
+                  libraryName: '@material-ui/core',
+                  style: false,
+                  customName: (name: string) => {
+                    console.log(name);
+                    return false;
+                  },
+                },
+              ],
+            ],
+          },
         },
       },
       {

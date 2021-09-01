@@ -42,7 +42,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
-"@babel/runtime@^7.13.10", "@babel/runtime@^7.14.8", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.13.10", "@babel/runtime@^7.14.8", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.7":
   version "7.15.3"
   resolved "https://registry.nlark.com/@babel/runtime/download/@babel/runtime-7.15.3.tgz?cache=0&sync_timestamp=1628666392734&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.15.3.tgz#2e1c2880ca118e5b2f9988322bd8a7656a32502b"
   integrity sha1-LhwogMoRjlsvmYgyK9inZWoyUCs=
@@ -1401,6 +1401,13 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+history@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.nlark.com/history/download/history-5.0.1.tgz?cache=0&sync_timestamp=1628892318943&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fhistory%2Fdownload%2Fhistory-5.0.1.tgz#de35025ed08bce0db62364b47ebbf9d97b5eb06a"
+  integrity sha1-3jUCXtCLzg22I2S0frv52XtesGo=
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+
 hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
@@ -1836,12 +1843,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash@^4.17.14:
-  version "4.17.21"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
-  integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
-
-lodash@^4.17.21:
+lodash@^4.17.14, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.nlark.com/lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -2322,6 +2324,18 @@ react-is@^16.7.0, react-is@^16.8.1:
   version "17.0.2"
   resolved "https://registry.nlark.com/react-is/download/react-is-17.0.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-is%2Fdownload%2Freact-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA=
+
+react-router-dom@^6.0.0-beta.0:
+  version "6.0.0-beta.2"
+  resolved "https://registry.nlark.com/react-router-dom/download/react-router-dom-6.0.0-beta.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-router-dom%2Fdownload%2Freact-router-dom-6.0.0-beta.2.tgz#f001f862e94787853363dd845d70340ab55c8744"
+  integrity sha1-8AH4YulHh4UzY92EXXA0CrVch0Q=
+  dependencies:
+    react-router "6.0.0-beta.2"
+
+react-router@6.0.0-beta.2, react-router@^6.0.0-beta.0:
+  version "6.0.0-beta.2"
+  resolved "https://registry.nlark.com/react-router/download/react-router-6.0.0-beta.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-router%2Fdownload%2Freact-router-6.0.0-beta.2.tgz#7c804e4d1f86ebfd397ed8b1e05a63d24bf3313f"
+  integrity sha1-fIBOTR+G6/05ftix4Fpj0kvzMT8=
 
 react-transition-group@^4.4.0:
   version "4.4.2"

@@ -13,6 +13,23 @@ function getModuleFederationExposes(modules) {
   return exposes;
 }
 
+const exposes = [
+  'react',
+  'react-router',
+  'react-router-dom',
+  'react-dom',
+  '@material-ui/core',
+  '@material-ui/icons',
+  '@material-ui/core/utils',
+  '@material-ui/core/locale',
+  '@material-ui/styles',
+  'react/jsx-dev-runtime',
+  'mobx',
+  'mobx-react-lite',
+  'moment',
+  'lodash',
+];
+
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
@@ -43,16 +60,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'mf_provider',
       filename: 'mf_provider_entry.js',
-      exposes: getModuleFederationExposes([
-        'react',
-        'react-dom',
-        '@material-ui/core',
-        'react/jsx-dev-runtime',
-        'mobx',
-        'mobx-react-lite',
-        'moment',
-        'lodash',
-      ]),
+      exposes: getModuleFederationExposes(exposes),
     }),
   ],
 };
