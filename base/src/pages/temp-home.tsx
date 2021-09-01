@@ -3,12 +3,14 @@ import { makeStyles } from '@material-ui/styles';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 
+
 const useStyles = makeStyles({
   homeButton: {
     marginTop: '10px !important',
     marginBottom: '10px !important',
   },
 });
+
 const TempHome: React.FC = () => {
   const classes = useStyles();
   return (

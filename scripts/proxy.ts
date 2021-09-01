@@ -19,6 +19,14 @@ const runProxy = async () => {
     }
   );
 
+  server.addRule(
+    'remote.yuzzl.top',
+    {
+      location: '/',
+      proxyPass: 'http://localhost:3002'
+    }
+  );
+
   await server.initServers();
   await server.listen();
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from '@material-ui/core';
 import { globalStore } from 'base_app/global-store';
@@ -8,12 +8,14 @@ const App: React.FC = observer(() => {
   console.log(globalStore);
   return (
     <div>
-      <Button variant='contained'>
-        【微应用数据】
-        {intl('Yzl_test_Age', {
-          age: '20',
-        })}
-      </Button>
+      <Suspense fallback={null}>
+        <Button variant='contained'>
+          【微应用数据】
+          {intl('Yzl_test_Age', {
+            age: '20',
+          })}
+        </Button>
+      </Suspense>
     </div>
   );
 });

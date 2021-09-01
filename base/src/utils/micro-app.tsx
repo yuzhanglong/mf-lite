@@ -30,6 +30,8 @@ const MicroApp: React.FC<MicroAppProps> = (props) => {
       current.microApp = loadMicroApp({
         ...props.microAppConfig,
         container: current.containerRef,
+      }, {
+        sandbox: false,
       });
     }
 

@@ -3,6 +3,7 @@ import HtmlWebpackPlugin = require('html-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import * as webpack from 'webpack';
+import { NormalModuleReplacementPlugin } from 'webpack';
 import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
 import { getModuleFederationExposes } from './get-module-federation-exposes';
@@ -68,7 +69,6 @@ const config = {
           enforce: true,
         },
       },
-
     },
     minimizer: [
       new TerserWebpackPlugin({
@@ -95,24 +95,22 @@ const config = {
     },
   },
   plugins: [
+    new NormalModuleReplacementPlugin(
+      /^(react)$|^(react-dom)$/,
+      (v: any) => {
+        // eslint-disable-next-line no-param-reassign
+        v.request = `mf_provider/${v.request}`;
+      }),
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
     new ModuleFederationPlugin({
       name: 'base_app',
-      library: {
-        type: 'global',
-        name: 'base_app',
+      remotes: {
+        'mf_provider': `mf_provider@https://remote.yuzzl.top/mf_provider_entry.js`,
       },
-      filename: 'base-entry.js',
+      filename: 'base_app_entry.js',
       exposes: getModuleFederationExposes([
-        'react',
-        'react-dom',
-        'react',
-        '@material-ui/core',
-        'react/jsx-dev-runtime',
-        'mobx',
-        'mobx-react-lite',
         {
           path: './global-store',
           resolve: path.resolve(sourcePath, 'store', 'global-store.ts'),

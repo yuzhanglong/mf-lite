@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@attachments/proxy@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@attachments/proxy/-/proxy-0.0.2.tgz#0e69c584ef7187ac9098cae3377104f0261251a9"
-  integrity sha512-frW+gOYv10xxDBVZtEYVk0aqBI6AYnrD3LXYH77N87B0ylMDB7PaCUKy3GgQmWBGnoYPC+jaBc/OnkijYUuqNA==
+"@attachments/proxy@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.nlark.com/@attachments/proxy/download/@attachments/proxy-0.0.4.tgz#4860c4a78cfa61af0d929b4a68fe83096176ce1e"
+  integrity sha1-SGDEp4z6Ya8NkptKaP6DCWF2zh4=
   dependencies:
     koa-compose "^4.1.0"
     pem "^1.14.4"

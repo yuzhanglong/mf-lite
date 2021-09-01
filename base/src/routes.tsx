@@ -4,7 +4,6 @@ import HomeLayout from '~src/components/DashboardLayout';
 import MainLayout from '~src/components/MainLayout';
 
 const Dashboard = React.lazy(() => import('~src/pages/temp-home'));
-const VueMicroApp = React.lazy(() => import('~src/micro-apps/vue-micro-wrapper'));
 const ReactMicroApp = React.lazy(() => import('~src/micro-apps/react-micro-wrapper'));
 
 const routes = [
@@ -14,7 +13,6 @@ const routes = [
     children: [
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'react', element: <ReactMicroApp /> },
-      { path: 'vue', element: <VueMicroApp /> },
     ],
   },
   {

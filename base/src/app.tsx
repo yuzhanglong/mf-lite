@@ -1,4 +1,3 @@
-import 'react-perfect-scrollbar/dist/css/styles.css';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
@@ -53,5 +52,3 @@ beforeAppStart()
   .then(() => {
     reactRenderer();
   });
-
-
