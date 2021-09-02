@@ -35,12 +35,12 @@ const config = {
     publicPath: '/react-micro-app/',
   },
   plugins: [
-    new NormalModuleReplacementPlugin(
-      /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
-      (v: any) => {
-        // eslint-disable-next-line no-param-reassign
-        v.request = `base_app/${v.request}`;
-      }),
+    // new NormalModuleReplacementPlugin(
+    //   /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
+    //   (v: any) => {
+    //     // eslint-disable-next-line no-param-reassign
+    //     v.request = `base_app/${v.request}`;
+    //   }),
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),

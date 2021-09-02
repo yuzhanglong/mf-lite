@@ -104,12 +104,11 @@ const config = {
         type: 'global',
         name: 'base_app',
       },
-      filename: 'base-entry.js',
+      filename: 'base_app_entry.js',
       exposes: getModuleFederationExposes([
         'react',
         'react-dom',
         'react',
-        '@material-ui/core',
         'react/jsx-dev-runtime',
         'mobx',
         'mobx-react-lite',

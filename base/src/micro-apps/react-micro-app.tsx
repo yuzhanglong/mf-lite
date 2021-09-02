@@ -5,7 +5,8 @@ interface ReactMicroWrapperProps {
 
 }
 
-const ReactMicroWrapper: React.FC<ReactMicroWrapperProps> = () => {
+const ReactMicroApp: React.FC<ReactMicroWrapperProps> = () => {
+  console.log('react!');
   return (
     <div>
       <MicroApp microAppConfig={{
@@ -16,4 +17,4 @@ const ReactMicroWrapper: React.FC<ReactMicroWrapperProps> = () => {
   );
 };
 
-export default ReactMicroWrapper;
+export default ReactMicroApp;

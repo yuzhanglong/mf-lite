@@ -31,9 +31,6 @@
     "prod:build": "rimraf dist && webpack --config scripts/webpack.config.ts --node-env production"
   },
   "dependencies": {
-    "@material-ui/core": "^5.0.0-beta.5",
-    "@material-ui/icons": "^5.0.0-alpha.28",
-    "@material-ui/styles": "^4.10.0",
     "antd": "^4.16.11",
     "qiankun": "^2.4.6",
     "react": "^17.0.2",
