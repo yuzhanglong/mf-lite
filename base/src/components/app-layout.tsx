@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Select } from 'antd';
 import {
   UserOutlined,
   VideoCameraOutlined,
@@ -8,6 +8,7 @@ import './app-layout.css';
 import React, { useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { renderRoutes } from 'react-router-config';
+import { LANGUAGE_MAP } from '~src/common/const';
 
 const { Header, Content, Sider } = Layout;
 
@@ -45,7 +46,17 @@ const AppLayout: React.FC<AppLayoutProps> = (props) => {
         </Menu>
       </Sider>
       <Layout className='site-layout' style={{ marginLeft: 200 }}>
-        <Header className='site-layout-background' style={{ padding: 0 }} />
+        <Header className='site-layout-background' style={{ padding: 0, display: 'flex', justifyContent: 'flex-end' }}>
+          <div style={{ marginRight: 16 }}>
+            <Select defaultValue='Chinese' style={{ width: 120 }} onSelect={async (v) => {
+              await intl.setLocal(v);
+            }}>
+              <Select.Option value={LANGUAGE_MAP.zh}>简体中文</Select.Option>
+              <Select.Option value={LANGUAGE_MAP.en}>English</Select.Option>
+            </Select>
+          </div>
+
+        </Header>
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div className='site-layout-background' style={{ padding: 24, textAlign: 'center' }}>
             {renderRoutes(route.routes)}

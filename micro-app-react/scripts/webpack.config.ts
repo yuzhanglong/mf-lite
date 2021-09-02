@@ -35,19 +35,32 @@ const config = {
     publicPath: '/react-micro-app/',
   },
   plugins: [
-    // new NormalModuleReplacementPlugin(
-    //   /^(react)$|(react-dom)$|(@material-ui\/core)$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
-    //   (v: any) => {
-    //     // eslint-disable-next-line no-param-reassign
-    //     v.request = `base_app/${v.request}`;
-    //   }),
+    new NormalModuleReplacementPlugin(
+      /^(react)$|(react-dom)$|$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
+      (v: { request: string }) => {
+        const externalPackages = [
+          'react',
+          'react-dom',
+          'react/jsx-dev-runtime',
+          'mobx',
+          'mobx-react-lite',
+          'react-router',
+          'react-router-dom',
+          'antd',
+        ];
+        if (externalPackages.includes(v.request)) {
+          // eslint-disable-next-line no-param-reassign
+          v.request = `base_app/${v.request}`;
+        }
+
+      }),
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
     new ModuleFederationPlugin({
       name: 'micro-react-app',
       remotes: {
-        'base_app': `base_app@https://micro-fe.yuzzl.top/base-entry.js`,
+        'base_app': `base_app@https://micro-fe.yuzzl.top/base_app_entry.js`,
       },
     }),
     new BundleAnalyzerPlugin({

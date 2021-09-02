@@ -5,9 +5,11 @@ import { Button } from 'antd';
 
 const App: React.FC = observer(() => {
   return (
-   <div>
-     <Button>React Micro App</Button>
-   </div>
+    <div>
+      <Button>{intl('Yzl_test_Name', {
+        name: 'yuzhanglong',
+      })}</Button>
+    </div>
   );
 });
 

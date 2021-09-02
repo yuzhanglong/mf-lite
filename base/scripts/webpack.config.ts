@@ -39,7 +39,7 @@ const config = {
       cacheGroups: {
         thirdVendors: {
           name: 'initial-third-vendors',
-          test: /moment|lodash|mobx/,
+          test: /moment|lodash|mobx|qiankun/,
           priority: 20,
           enforce: true,
         },
@@ -49,21 +49,21 @@ const config = {
           priority: 20,
           enforce: true,
         },
-        materialUiComponents: {
-          name: 'initial-material-ui-components-vendors',
-          test: /@material-ui\/core/,
+        uiComponents: {
+          name: 'initial-ui-components-vendors',
+          test: /antd/,
           priority: 20,
           enforce: true,
         },
-        materialUiIcons: {
-          name: 'initial-material-ui-icons-vendors',
-          test: /@material-ui\/icons/,
+        uiIcons: {
+          name: 'initial-ui-icons-vendors',
+          test: /@ant-design\/icons/,
           priority: 20,
           enforce: true,
         },
-        materialUiOthers: {
+        uiOthers: {
           name: 'initial-material-ui-others-vendors',
-          test: /@material-ui\/*/,
+          test: /@ant-design\/*/,
           priority: 10,
           enforce: true,
         },
@@ -108,9 +108,11 @@ const config = {
       exposes: getModuleFederationExposes([
         'react',
         'react-dom',
-        'react',
+        'react-router',
+        'react-router-dom',
         'react/jsx-dev-runtime',
         'mobx',
+        'antd',
         'mobx-react-lite',
         {
           path: './global-store',
