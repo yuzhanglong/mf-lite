@@ -31,6 +31,9 @@ const config = {
     // 公共路径
     publicPath: '/',
   },
+  cache: {
+    type: 'filesystem',
+  },
   optimization: {
     runtimeChunk: 'single',
     minimize: isProd,

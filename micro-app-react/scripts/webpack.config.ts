@@ -16,6 +16,9 @@ const config = {
   mode: isProd ? 'production' : 'development',
   entry: path.resolve(sourcePath, 'index.tsx'),
   devtool: 'source-map',
+  cache: {
+    type: 'filesystem',
+  },
   devServer: {
     client: {
       webSocketURL: 'ws://localhost:10000/ws',

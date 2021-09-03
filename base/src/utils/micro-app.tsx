@@ -46,7 +46,7 @@ const MicroApp: React.FC<MicroAppProps> = (props) => {
     if (current.microApp && current.microApp.update) {
       current.microApp.update({});
     }
-  });
+  }, []);
   return (
     <div className={`micro-app-${props.microAppConfig.name}`} ref={(ref) => {
       current.containerRef = ref;
