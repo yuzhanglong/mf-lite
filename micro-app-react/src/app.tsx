@@ -16,3 +16,10 @@ const App: React.FC = observer(() => {
 export const render = () => {
   ReactDOM.render(<App />, document.getElementById('react-app'));
 };
+
+export const destroy = () => {
+  const el = document.getElementById('react-app');
+  if (el) {
+    ReactDOM.unmountComponentAtNode(el);
+  }
+};

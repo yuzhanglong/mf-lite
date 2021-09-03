@@ -57,7 +57,7 @@ const AppLayout: React.FC<AppLayoutProps> = (props) => {
           </div>
 
         </Header>
-        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+        <Content style={{ margin: '24px 16px 0', overflow: 'initial', height: '100vh' }}>
           <div className='site-layout-background' style={{ padding: 24, textAlign: 'center' }}>
             {renderRoutes(route.routes)}
           </div>
