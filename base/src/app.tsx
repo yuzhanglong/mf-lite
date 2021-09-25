@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import React, { Suspense } from 'react';
 import { observer } from 'mobx-react-lite';
 import { renderRoutes } from 'react-router-config';

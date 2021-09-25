@@ -3,9 +3,9 @@ import HtmlWebpackPlugin = require('html-webpack-plugin');
 import TerserWebpackPlugin = require('terser-webpack-plugin');
 import MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import * as webpack from 'webpack';
+import { NormalModuleReplacementPlugin } from 'webpack';
 import { publicPath, sourcePath } from './path';
 import { CSS_PREFIX, FILE_PREFIX, JS_PREFIX } from './const';
-import { getModuleFederationExposes } from './get-module-federation-exposes';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ModuleFederationPlugin } = require('webpack').container;
@@ -34,56 +34,6 @@ const config = {
   cache: {
     type: 'filesystem',
   },
-  optimization: {
-    runtimeChunk: 'single',
-    minimize: isProd,
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        thirdVendors: {
-          name: 'initial-third-vendors',
-          test: /moment|lodash|mobx|qiankun/,
-          priority: 20,
-          enforce: true,
-        },
-        reactVendors: {
-          name: 'initial-react-vendors',
-          test: /react\/|react-dom\/|react-router\/|react-router-dom\/|axios/,
-          priority: 20,
-          enforce: true,
-        },
-        uiComponents: {
-          name: 'initial-ui-components-vendors',
-          test: /antd/,
-          priority: 20,
-          enforce: true,
-        },
-        uiIcons: {
-          name: 'initial-ui-icons-vendors',
-          test: /@ant-design\/icons/,
-          priority: 20,
-          enforce: true,
-        },
-        uiOthers: {
-          name: 'initial-material-ui-others-vendors',
-          test: /@ant-design\/*/,
-          priority: 10,
-          enforce: true,
-        },
-      },
-
-    },
-    minimizer: [
-      new TerserWebpackPlugin({
-        terserOptions: {
-          format: {
-            comments: false,
-          },
-        },
-        extractComments: false,
-      }),
-    ],
-  },
   devServer: {
     client: {
       webSocketURL: 'ws://localhost:8080/ws',
@@ -98,30 +48,29 @@ const config = {
     },
   },
   plugins: [
+    new NormalModuleReplacementPlugin(
+      /(.*)/,
+      (v: { request: string }) => {
+        const externalPackages = [
+          'react',
+          'react-dom',
+          'mobx',
+          'mobx-react-lite',
+          'react-router-dom',
+          'antd',
+        ];
+        if (externalPackages.includes(v.request)) {
+          // eslint-disable-next-line no-param-reassign
+          v.request = `mf_provider/${v.request}`;
+        }
+      }),
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
     }),
     new ModuleFederationPlugin({
-      name: 'base_app',
-      library: {
-        type: 'var',
-        name: 'base_app',
+      remotes: {
+        'mf_provider': 'mf_provider@https://mf.yuzzl.top/mf_provider.js',
       },
-      filename: 'base_app_entry.js',
-      exposes: getModuleFederationExposes([
-        'react',
-        'react-dom',
-        'react-router',
-        'react-router-dom',
-        'react/jsx-dev-runtime',
-        'mobx',
-        'antd',
-        'mobx-react-lite',
-        {
-          path: './global-store',
-          resolve: path.resolve(sourcePath, 'store', 'global-store.ts'),
-        },
-      ]),
     }),
     new MiniCssExtractPlugin({
       filename: `${CSS_PREFIX}/${isProd ? '[name].[contenthash].css' : '[name].css'}`,

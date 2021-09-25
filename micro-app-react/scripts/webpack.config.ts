@@ -39,7 +39,7 @@ const config = {
   },
   plugins: [
     new NormalModuleReplacementPlugin(
-      /^(react)$|(react-dom)$|$|^(react\/jsx-dev-runtime)$|^(mobx)$|^(mobx-react-lite)$/,
+      /(.*)/,
       (v: { request: string }) => {
         const externalPackages = [
           'react',
@@ -53,9 +53,8 @@ const config = {
         ];
         if (externalPackages.includes(v.request)) {
           // eslint-disable-next-line no-param-reassign
-          v.request = `base_app/${v.request}`;
+          v.request = `mf_provider/${v.request}`;
         }
-
       }),
     new HtmlWebpackPlugin({
       template: path.resolve(publicPath, 'index.html'),
@@ -63,7 +62,7 @@ const config = {
     new ModuleFederationPlugin({
       name: 'micro-react-app',
       remotes: {
-        'base_app': `base_app@https://micro-fe.yuzzl.top/base_app_entry.js`,
+        'mf_provider': 'mf_provider@https://mf.yuzzl.top/mf_provider.js',
       },
     }),
     new BundleAnalyzerPlugin({

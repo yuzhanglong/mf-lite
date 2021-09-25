@@ -6,7 +6,7 @@ import {
 import './app-layout.css';
 
 import React, { useState } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { LANGUAGE_MAP } from '~src/common/const';
 
@@ -15,6 +15,7 @@ const { Header, Content, Sider } = Layout;
 interface AppLayoutProps extends RouteComponentProps {
 
 }
+
 
 const AppLayout: React.FC<AppLayoutProps> = (props) => {
   // @ts-ignore

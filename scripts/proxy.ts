@@ -16,7 +16,15 @@ const runProxy = async () => {
     {
       location: '/vue-micro-app',
       proxyPass: 'http://localhost:10001/vue-micro-app',
-    }
+    },
+  );
+
+  server.addRule(
+    'mf.yuzzl.top',
+    {
+      location: '/',
+      proxyPass: 'http://localhost:9000',
+    },
   );
 
   await server.initServers();

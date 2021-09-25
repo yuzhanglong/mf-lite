@@ -3882,9 +3882,9 @@ react-refresh@^0.10.0:
   resolved "https://registry.nlark.com/react-refresh/download/react-refresh-0.10.0.tgz#2f536c9660c0b9b1d500684d9e52a65e7404f7e3"
   integrity sha1-L1NslmDAubHVAGhNnlKmXnQE9+M=
 
-react-router-config@^5.1.1:
+react-router-config@5.1.1:
   version "5.1.1"
-  resolved "https://registry.npm.taobao.org/react-router-config/download/react-router-config-5.1.1.tgz#0f4263d1a80c6b2dc7b9c1902c9526478194a988"
+  resolved "https://registry.nlark.com/react-router-config/download/react-router-config-5.1.1.tgz#0f4263d1a80c6b2dc7b9c1902c9526478194a988"
   integrity sha1-D0Jj0agMay3HucGQLJUmR4GUqYg=
   dependencies:
     "@babel/runtime" "^7.1.2"
