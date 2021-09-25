@@ -15,7 +15,7 @@ const isProd = env === 'production';
 const config = {
   mode: isProd ? 'production' : 'development',
   entry: path.resolve(sourcePath, 'index.tsx'),
-  devtool: 'source-map',
+  devtool: isProd ? false : 'source-map',
   cache: {
     type: 'filesystem',
   },

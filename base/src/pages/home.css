@@ -1,0 +1,17 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.hello-1 {
+    width: 200px;
+}
+
+.hello-2 {
+    position: absolute;
+    left: 200px;
+}
+
+.hello-3 {
+    width: 100px;
+    height: 120px;
+}

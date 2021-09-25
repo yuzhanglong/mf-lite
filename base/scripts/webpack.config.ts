@@ -104,7 +104,7 @@ const config = {
     new ModuleFederationPlugin({
       name: 'base_app',
       library: {
-        type: 'global',
+        type: 'var',
         name: 'base_app',
       },
       filename: 'base_app_entry.js',

@@ -6,9 +6,7 @@ import { Button } from 'antd';
 const App: React.FC = observer(() => {
   return (
     <div>
-      <Button>{intl('Yzl_test_Name', {
-        name: 'yuzhanglong',
-      })}</Button>
+      <Button>Hello world!</Button>
     </div>
   );
 });
