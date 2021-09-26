@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "0.1.0",
   "devDependencies": {
-    "@attachments/proxy": "^0.0.4",
+    "@attachments/proxy": "^0.0.7",
     "@types/mini-css-extract-plugin": "^2.2.0",
     "@types/node": "^16.4.6",
     "@types/terser-webpack-plugin": "^5.0.4",
