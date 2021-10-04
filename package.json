@@ -1,0 +1,8 @@
+{
+  "name": "mf-lite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yuzhanglong/mf-lite.git",
+  "author": "yuzhanglong <yuzl1123@163.com>",
+  "license": "MIT"
+}
