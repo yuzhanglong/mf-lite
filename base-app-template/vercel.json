@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/types",
+      "destination": "/types"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
