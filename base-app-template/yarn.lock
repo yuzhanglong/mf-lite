@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@attachments/module-federation-toolkits@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.npmmirror.com/@attachments/module-federation-toolkits/download/@attachments/module-federation-toolkits-0.0.16.tgz?cache=0&sync_timestamp=1633265317568&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Fmodule-federation-toolkits%2Fdownload%2F%40attachments%2Fmodule-federation-toolkits-0.0.16.tgz#7fe5c66792f7daacdff4b519f3945bd84ee5a510"
-  integrity sha1-f+XGZ5L32qzf9LUZ85Rb2E7lpRA=
+"@attachments/module-federation-toolkits@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.npmmirror.com/@attachments/module-federation-toolkits/download/@attachments/module-federation-toolkits-0.0.17.tgz?cache=0&sync_timestamp=1633322429426&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Fmodule-federation-toolkits%2Fdownload%2F%40attachments%2Fmodule-federation-toolkits-0.0.17.tgz#19e6241ea2f03e92d94270e5a7c0053bb54a7526"
+  integrity sha1-GeYkHqLwPpLZQnDlp8AFO7VKdSY=
   dependencies:
-    "@attachments/utils" "^0.0.16"
+    "@attachments/utils" "^0.0.17"
     "@babel/core" "^7.15.5"
     "@babel/plugin-proposal-decorators" "^7.15.4"
     "@babel/plugin-transform-runtime" "^7.15.0"
@@ -50,10 +50,10 @@
     pem "^1.14.4"
     winston "^3.3.3"
 
-"@attachments/utils@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.npmmirror.com/@attachments/utils/download/@attachments/utils-0.0.16.tgz?cache=0&sync_timestamp=1633265312827&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Futils%2Fdownload%2F%40attachments%2Futils-0.0.16.tgz#7798227957792956ceea073069abb83809a6ef93"
-  integrity sha1-d5gieVd5KVbO6gcwaau4OAmm75M=
+"@attachments/utils@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.npmmirror.com/@attachments/utils/download/@attachments/utils-0.0.17.tgz?cache=0&sync_timestamp=1633322429242&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Futils%2Fdownload%2F%40attachments%2Futils-0.0.17.tgz#1c41ea4c59beed41b736e5d184b92a9e587c3128"
+  integrity sha1-HEHqTFm+7UG3NuXRhLkqnlh8MSg=
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"

@@ -8,21 +8,21 @@ import { routes } from './routes';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter basename={'/react'}>
+    <BrowserRouter>
       {renderRoutes(routes)}
     </BrowserRouter>
   );
 };
 
 export const render = () => {
-  const el = document.getElementById('react-app');
+  const el = document.getElementById('micro-app-react');
   if (el) {
     ReactDOM.render(<App />, el);
   }
 };
 
 export const destroy = () => {
-  const el = document.getElementById('react-app');
+  const el = document.getElementById('micro-app-react');
   if (el) {
     ReactDOM.unmountComponentAtNode(el);
   }

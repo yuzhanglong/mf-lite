@@ -1,6 +1,5 @@
 const App = import('./app');
 
-
 const render = () => {
   App.then(res => res.render());
 };

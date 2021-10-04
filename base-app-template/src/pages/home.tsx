@@ -1,15 +1,12 @@
 import React from 'react';
-import { renderRoutes } from 'react-router-config';
 import './home.less';
-import { RouteComponentProps } from 'react-router';
+import { createMicroApp } from '~src/utils/create-micro-app';
 
-interface HomeProps extends RouteComponentProps {
+interface HomeProps {
 
 }
 
 const Home: React.FC<HomeProps> = (props) => {
-  // @ts-ignore
-  const { route } = props;
 
   return (
     <div className={'base-app-home'}>
@@ -17,7 +14,7 @@ const Home: React.FC<HomeProps> = (props) => {
         🎉 This is Base App home page, the micro app will be rendered below! 🎉
       </div>
       <div className={'content'}>
-        {renderRoutes(route.routes)}
+        {createMicroApp('micro-app-react')()}
       </div>
     </div>
   );

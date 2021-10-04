@@ -6,6 +6,6 @@ export interface MicroAppConfig {
 export const MICRO_APPS: MicroAppConfig[] = [
   {
     name: 'micro-app-react',
-    url: 'https://react-demo-app-yzl.vercel.app',
+    url: 'https://micro-app-react.vercel.app',
   },
 ];

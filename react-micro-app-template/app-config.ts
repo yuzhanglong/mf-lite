@@ -1,14 +1,13 @@
 import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node/micro-fe-app-config';
 
 const config: MicroAppConfig = {
-  name: 'react-demo-app',
-  url: 'https://react-demo-app-yzl.vercel.app/',
+  name: 'micro_app_react',
+  url: 'https://micro-app-react.vercel.app/',
   exposes: [],
   remotes: [
     {
       name: 'base_app',
-      url: 'https://base-yzl.vercel.app/',
-      sharedEntryPath: 'https://base-yzl.vercel.app/base_app_entry.js',
+      url: 'https://base-app.vercel.app/',
       sharedLibraries: [
         'react',
         'react-dom',
