@@ -8,9 +8,10 @@
 
 **mf-lite** 是一个基于 **Webpack Module Federation** 的微前端解决方案，提供以下内容：
 
-- 一个通过命令行快速创建基座应用或者微前端应用的**脚手架**（CLI）。
-- 一个基于 node.js、方便独立开发微应用的 HTTP **请求代理工具**（proxy）。
-- 一个核心工具库，它可以：
+- 一个通过命令行快速创建基座应用或者微前端应用的**脚手架**（CLI）。[![npm Version](https://img.shields.io/npm/v/@attachments/assets.svg)](https://www.npmjs.com/package/@attachments/assets)
+
+- 一个基于 node.js、方便独立开发微应用的 HTTP **请求代理工具**（proxy）。[![npm Version](https://img.shields.io/npm/v/@attachments/proxy.svg)](https://www.npmjs.com/package/@attachments/proxy)
+- 一个核心工具库 [![npm Version](https://img.shields.io/npm/v/@attachments/module-federation-toolkits.svg)](https://www.npmjs.com/package/@attachments/module-federation-toolkits)，它可以：
     - 让微前端架构下的的**库共享**(share library)、甚至**模块共享**(share module)成为可能。
     - 自动生成、处理 webpack 的配置项目，减少用户心智负担。
     - 子应用支持自动生成**远程模块的类型定义**，从而无缝衔接 typescript。
