@@ -2,12 +2,12 @@ import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node
 
 const config: MicroAppConfig = {
   name: 'micro_app_react',
-  url: 'http://localhost:10000/',
+  url: 'https://mf-lite-quick-start-micro-app.vercel.app/',
   exposes: [],
   remotes: [
     {
       name: 'base_app',
-      url: 'http://localhost:8080/',
+      url: 'https://mf-lite-quick-start-base-app.vercel.app/',
       sharedLibraries: [
         'react',
         'react-dom',
