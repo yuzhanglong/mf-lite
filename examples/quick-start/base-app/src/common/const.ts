@@ -6,6 +6,6 @@ export interface MicroAppConfig {
 export const MICRO_APPS: MicroAppConfig[] = [
   {
     name: 'micro-app-react',
-    url: 'https://mf-lite-quick-start-micro-app.vercel.app/',
+    url: 'http://localhost:10000/',
   },
 ];

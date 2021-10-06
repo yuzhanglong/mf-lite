@@ -5,7 +5,7 @@ import { sourcePath } from '@attachments/module-federation-toolkits/lib/common/p
 const config: MicroAppConfig = {
   remotes: [],
   name: 'base_app',
-  url: 'https://mf-lite-quick-start-base-app.vercel.app/',
+  url: 'http://localhost:8080/',
   exposes: [
     'react',
     'react-dom',
