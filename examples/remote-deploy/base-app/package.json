@@ -1,5 +1,5 @@
 {
-  "name": "base",
+  "name": "base-app",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -26,7 +26,8 @@
     "react-router-config": "^5.1.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack-merge": "^5.8.0"
   },
   "scripts": {
     "dev:proxy": "ts-node scripts/proxy.ts",
