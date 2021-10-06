@@ -1,10 +1,10 @@
 {
-  "name": "base",
+  "name": "base-app",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@attachments/proxy": "^0.0.19",
+    "@attachments/proxy": "^0.1.0",
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16.4.6",
     "@types/react": "^17.0.18",
@@ -15,6 +15,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "autoprefixer": "^10.3.6",
+    "concurrently": "^6.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -25,7 +26,8 @@
     "react-router-config": "^5.1.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack-merge": "^5.8.0"
   },
   "scripts": {
     "dev:proxy": "ts-node scripts/proxy.ts",
@@ -36,8 +38,8 @@
     "generate": "ts-node scripts/generate.ts"
   },
   "dependencies": {
-    "@attachments/module-federation-toolkits": "^0.0.19",
-    "@attachments/utils": "^0.0.19",
+    "@attachments/module-federation-toolkits": "^0.1.0",
+    "@attachments/utils": "^0.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.1",

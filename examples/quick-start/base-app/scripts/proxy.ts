@@ -12,15 +12,6 @@ const runProxy = async () => {
     }
   );
 
-  // react app 代理
-  server.addRule(
-    'micro-app-react.vercel.app',
-    {
-      location: '/',
-      proxyPass: 'http://localhost:10000',
-    }
-  );
-
   await server.initServers();
   await server.listen();
 };
