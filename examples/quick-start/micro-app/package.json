@@ -40,6 +40,7 @@
   "dependencies": {
     "@attachments/module-federation-toolkits": "^0.1.0",
     "@attachments/utils": "^0.1.0",
+    "antd": "^4.16.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.1",

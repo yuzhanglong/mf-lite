@@ -7,7 +7,7 @@ const build = async () => {
     port: 8080,
     type: 'base',
     isBuildMode: true,
-    isAnalyzeMode: false,
+    isAnalyzeMode: false
   });
 
   await webpackBuild(config);

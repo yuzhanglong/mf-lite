@@ -14,7 +14,8 @@ const config: MicroAppConfig = {
         'react/jsx-dev-runtime',
         'react-router',
         'react-router-dom',
-        'react-router-config'
+        'react-router-config',
+        'antd'
       ]
     }
   ]
