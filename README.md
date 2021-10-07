@@ -1,6 +1,9 @@
-<h1 align="center">
-<b>mf-lite</b>
-</h1>
+<div align="center">
+<a href="https://github.com/yuzhanglong/mf-lite">
+  <img src="./assets/logo.png" width="200">
+</a>
+</div>
+<br/>
 
 <div align="center">
 
