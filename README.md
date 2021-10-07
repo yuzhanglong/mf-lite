@@ -3,8 +3,13 @@
 </h1>
 
 <div align="center">
-🎉 优雅且实用的基于 Webpack Module Federation 的微前端解决方案。
-  
+
+优雅且实用的基于 Webpack Module Federation 的微前端解决方案。
+
+</div>
+
+<div align="center">
+
 [在线 DEMO](https://mf-lite-quick-start-base-app.vercel.app/) | [文档](https://ph3xmz5sya.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f)
 </div>
 
@@ -39,11 +44,11 @@
 
 ## 案例
 
-[快速开始](https://github.com/yuzhanglong/mf-lite/tree/master/examples/quick-start), 最简单的项目 DEMO，开箱即用，全部在本地运行开发。子应用能够共享基座应用暴露出来的模块或者 npm 包。
+[快速开始案例](https://github.com/yuzhanglong/mf-lite/tree/master/examples/quick-start), 最简单的项目 DEMO，开箱即用，全部在本地运行开发。子应用能够共享基座应用暴露出来的模块或者 npm 包。
 
-[微应用独立开发](https://github.com/yuzhanglong/mf-lite/tree/master/examples/micro-app-only), 单独微应用的开发模式，基于部署在远程的基座开发。
+[微应用独立开发案例](https://github.com/yuzhanglong/mf-lite/tree/master/examples/micro-app-only), 单独微应用的开发模式，基于部署在远程的基座开发。
 
-[远程部署](https://github.com/yuzhanglong/mf-lite/tree/master/examples/remote-deploy), 一个部署在 vercel 平台的案例，其实现效果就是上文的 [在线 DEMO](https://mf-lite-quick-start-base-app.vercel.app/)
+[远程部署案例](https://github.com/yuzhanglong/mf-lite/tree/master/examples/remote-deploy), 一个部署在 vercel 平台的案例，其实现效果就是上文的 [在线 DEMO](https://mf-lite-quick-start-base-app.vercel.app/)
 
 ## License
 
