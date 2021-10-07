@@ -34,6 +34,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'func-names': 'off',
     'global-require': 'off',
+    'import/no-unresolved': 'off'
   },
   settings: {
     'import/parsers': {
