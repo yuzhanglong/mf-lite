@@ -1,0 +1,15 @@
+{
+  "name": "micro-app-share",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  },
+  "scripts": {
+    "start-all": "concurrently \"yarn:dev:*\" --prefix-colors dim",
+    "dev:start-base-app": "cd base-app && yarn dev:serve",
+    "dev:start-micro-app-one": "cd micro-app-one && yarn dev:serve",
+    "dev:start-micro-app-two": "cd micro-app-two && yarn dev:serve"
+  }
+}
