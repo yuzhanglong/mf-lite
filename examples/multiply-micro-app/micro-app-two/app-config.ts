@@ -1,16 +1,9 @@
 import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node/micro-fe-app-config';
-import * as path from 'path';
 
 const config: MicroAppConfig = {
-  name: 'micro_app_one',
-  url: 'http://localhost:10000/',
-  exposes: [
-    {
-      name: 'subtraction',
-      path: path.resolve(process.cwd(), 'src', 'utils', 'subtraction.ts'),
-      type: 'module'
-    }
-  ],
+  name: 'micro_app_two',
+  url: 'http://localhost:10001/',
+  exposes: [],
   remotes: [
     {
       name: 'base_app',
