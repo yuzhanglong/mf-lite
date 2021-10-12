@@ -33,7 +33,7 @@ public/static
 .cache
 
 # 本地生成的类型定义文件
-src/types/remotes
+src/types/mf-remotes
 
 # 模块提供者打包生成的类型定义
 public/mf-expose/types

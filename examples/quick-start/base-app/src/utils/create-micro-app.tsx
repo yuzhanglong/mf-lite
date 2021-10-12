@@ -19,7 +19,7 @@ export const createMicroApp = (name: string) => {
     const microAppConfig = {
       name: name,
       entry: getMicroApp(name).url,
-    };
+    }
 
     useEffect(() => {
       if (ref.current?.appStore) {

@@ -13,13 +13,12 @@ const config: MicroAppConfig = {
     'react-router-dom',
     'react-router-config',
     'react/jsx-dev-runtime',
-    'antd',
     {
       name: 'shared-utils',
       path: path.resolve(sourcePath, 'utils', 'shared-utils.ts'),
-      type: 'module'
-    }
-  ]
+      type: 'module',
+    },
+  ],
 };
 
 export default config;

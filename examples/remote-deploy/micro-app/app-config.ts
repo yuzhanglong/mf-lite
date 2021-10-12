@@ -1,7 +1,7 @@
 import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node/micro-fe-app-config';
 
 const config: MicroAppConfig = {
-  name: 'micro_app_react',
+  name: 'micro_app',
   url: 'https://mf-lite-quick-start-micro-app.vercel.app/',
   exposes: [],
   remotes: [
