@@ -1,7 +1,7 @@
 import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node/micro-fe-app-config';
 
 const config: MicroAppConfig = {
-  name: 'micro_app_react',
+  name: 'micro_app',
   url: 'http://localhost:10000/',
   exposes: [],
   remotes: [
@@ -14,8 +14,7 @@ const config: MicroAppConfig = {
         'react/jsx-dev-runtime',
         'react-router',
         'react-router-dom',
-        'react-router-config',
-        'antd'
+        'react-router-config'
       ]
     }
   ]

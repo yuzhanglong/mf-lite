@@ -5,7 +5,6 @@ import { renderRoutes } from 'react-router-config';
 import { routes } from '~src/routes';
 import './utils/init-common';
 import '@attachments/utils/src/browser/css/common.css';
-import 'antd/dist/antd.less';
 
 const App = () => {
   return (

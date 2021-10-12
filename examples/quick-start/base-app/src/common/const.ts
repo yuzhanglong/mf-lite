@@ -5,7 +5,7 @@ export interface MicroAppConfig {
 
 export const MICRO_APPS: MicroAppConfig[] = [
   {
-    name: 'micro-app-react',
+    name: 'micro-app',
     url: 'http://localhost:10000/',
   },
 ];
