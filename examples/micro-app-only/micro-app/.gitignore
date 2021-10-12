@@ -10,6 +10,11 @@
 
 # production
 /build
+dist
+
+
+# IDE Config
+.idea
 
 # misc
 .DS_Store
@@ -22,14 +27,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# tmp files
 public/static
-
-./i18n
-
-dist
-
-.idea
 
 .cache
 
-src/types/remotes
+# 本地生成的类型定义文件
+src/types/mf-remotes
+
+# 模块提供者打包生成的类型定义
+public/mf-expose/types
