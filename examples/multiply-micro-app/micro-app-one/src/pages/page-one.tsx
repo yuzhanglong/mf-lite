@@ -6,7 +6,7 @@ interface ProfileProps {
 
 const PageOne: React.FC<ProfileProps> = () => {
   return (
-    <div>Page One</div>
+    <div>我是第一个微应用~</div>
   );
 };
 
