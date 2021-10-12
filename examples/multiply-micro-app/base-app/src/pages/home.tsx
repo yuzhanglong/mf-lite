@@ -7,16 +7,14 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = () => {
-
   return (
     <div className={'base-app-home'}>
       <div className={'title'}>
-        🎉 This is Base App home page, the micro app will be rendered below! 🎉
+        🎉 Two micro apps will be rendered below!!!
       </div>
       <div className={'content'}>
         {createMicroApp('micro-app-one')()}
       </div>
-
       <div className={'content'}>
         {createMicroApp('micro-app-two')()}
       </div>

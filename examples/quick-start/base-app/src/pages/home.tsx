@@ -6,7 +6,7 @@ interface HomeProps {
 
 }
 
-const Home: React.FC<HomeProps> = (props) => {
+const Home: React.FC<HomeProps> = () => {
   return (
     <div className={'base-app-home'}>
       <div className={'title'}>

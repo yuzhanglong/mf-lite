@@ -24,7 +24,7 @@ const Home: React.FC<HomeProps> = (props) => {
     <div className={'react-app-home'}>
       <div className={'button-wrapper'}>
         <button className={'button'} onClick={() => handleButtonClick()}>
-          {`We are at page ${currentPage}, click to change!`}
+          {`We are at page ${currentPage}, click me to change!`}
         </button>
       </div>
       <div className={'home-content'}>

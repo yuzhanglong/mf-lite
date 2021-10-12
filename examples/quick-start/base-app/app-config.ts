@@ -16,9 +16,9 @@ const config: MicroAppConfig = {
     {
       name: 'shared-utils',
       path: path.resolve(sourcePath, 'utils', 'shared-utils.ts'),
-      type: 'module',
-    },
-  ],
+      type: 'module'
+    }
+  ]
 };
 
 export default config;

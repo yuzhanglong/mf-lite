@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { renderRoutes } from 'react-router-config';
 import { RouteComponentProps } from 'react-router';
 import './home.less';
-import add from 'base_app/shared-utils';
 
 interface HomeProps extends RouteComponentProps {
 
@@ -29,12 +28,6 @@ const Home: React.FC<HomeProps> = (props) => {
         </button>
       </div>
       <div className={'home-content'}>
-        <div>
-          我是1号子应用
-        </div>
-        <div>
-          尝试消费基座应用的加法函数：[100 + 100 = {add(100, 100)}]
-        </div>
         {renderRoutes(route.routes)}
       </div>
     </div>
