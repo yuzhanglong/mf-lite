@@ -15,14 +15,14 @@ const App: React.FC = () => {
 };
 
 export const render = () => {
-  const el = document.getElementById('micro-app-react');
+  const el = document.getElementById('micro-app');
   if (el) {
     ReactDOM.render(<App />, el);
   }
 };
 
 export const destroy = () => {
-  const el = document.getElementById('micro-app-react');
+  const el = document.getElementById('micro-app');
   if (el) {
     ReactDOM.unmountComponentAtNode(el);
   }

@@ -1,5 +1,5 @@
 {
-  "name": "base",
+  "name": "micro-app",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -26,15 +26,16 @@
     "react-router-config": "^5.1.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack-merge": "^5.8.0"
   },
   "scripts": {
     "dev:proxy": "ts-node scripts/proxy.ts",
-    "dev:serve": "cross-env NODE_ENV=development ts-node scripts/serve.ts",
-    "build:dev": "rimraf dist && cross-env NODE_ENV=development ts-node scripts/build.ts",
-    "build:prod": "rimraf dist && cross-env NODE_ENV=production ts-node scripts/build.ts",
+    "dev:serve": "cross-env NODE_ENV=development mf-scripts serve --port=10000 --app-type=micro-app",
+    "build:dev": "rimraf dist && cross-env NODE_ENV=development mf-scripts build --app-type=micro-app",
+    "build:prod": "rimraf dist && cross-env NODE_ENV=production mf-scripts build --app-type=micro-app",
     "lint": "eslint --ext js,jsx,ts,tsx src",
-    "generate": "ts-node scripts/generate.ts"
+    "generate": "mf-scripts generate"
   },
   "dependencies": {
     "@attachments/module-federation-toolkits": "^0.1.0",
