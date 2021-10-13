@@ -10,7 +10,7 @@ const Home: React.FC<HomeProps> = () => {
   // @ts-ignore
   return (
     <div className={'react-app-home'}>
-      这是本地的代码~
+      这是本地微应用的代码~
     </div>
   );
 };

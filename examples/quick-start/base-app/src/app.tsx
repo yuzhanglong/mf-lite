@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import { renderRoutes } from 'react-router-config';
 import { routes } from '~src/routes';
 import './utils/init-common';
+import 'antd/dist/antd.less';
 import '@attachments/utils/src/browser/css/common.css';
 
 const App = () => {
