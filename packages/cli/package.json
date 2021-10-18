@@ -1,9 +1,9 @@
 {
   "name": "@mf-lite/cli",
   "version": "0.0.2",
-  "description": "> TODO: add description",
-  "author": "> TODO: add author",
-  "homepage": "",
+  "description": "A scaffold for quickly creating base applications or micro-front-end applications from the command line",
+  "author": "yuzhanglong <loveyzl1123@gmail.com>",
+  "homepage": "https://github.com/yuzhanglong/mf-lite",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "esm/index.js",

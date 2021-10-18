@@ -1,9 +1,7 @@
-# @attachments/module-federation-toolkits
+# @mf-lite/core
 
-Typescript App @attachments/module-federation-toolkits
+mf-lite 的核心工具库
 
 ## Usage
 
-```bash
-yarn add @attachments/module-federation-toolkits
-```
+[查看文档](https://ph3xmz5sya.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f?from=space_persnoal_filelist)

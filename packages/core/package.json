@@ -1,9 +1,9 @@
 {
   "name": "@mf-lite/core",
   "version": "0.0.2",
-  "description": "> TODO: description",
-  "author": "yuzhanglong <yuzl1123@163.com>",
-  "homepage": "",
+  "description": "core library for mf-lite",
+  "author": "yuzhanglong <loveyzl1123@gmail.com>",
+  "homepage": "https://github.com/yuzhanglong/mf-lite",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "esm/index.js",
