@@ -1,0 +1,31 @@
+{
+  "name": "@mf-lite/cli",
+  "version": "0.0.1",
+  "description": "> TODO: add description",
+  "author": "> TODO: add author",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "bin": {
+    "mf-lite": "lib/index.js"
+  },
+  "files": [
+    "src",
+    "esm",
+    "lib"
+  ],
+  "scripts": {
+    "dev:start": "tsc -w",
+    "build:cjs": "rimraf ./lib && tsc --module commonjs --outDir lib",
+    "build:esm": "rimraf ./esm && tsc --module ESNext --outDir esm",
+    "build": "npm-run-all --parallel build:*",
+    "lint": "eslint --ext .ts --max-warnings 0 ./src",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@attachments/assets": "^0.1.13",
+    "@mf-lite/core": "^0.0.1",
+    "commander": "^8.2.0"
+  }
+}

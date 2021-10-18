@@ -16,3 +16,9 @@ yarn-error.log*
 .idea
 
 dist
+
+esm
+lib
+
+yarn.lock
+package.lock.json

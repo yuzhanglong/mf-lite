@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "declaration": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "types": [
+      "jest",
+      "node"
+    ],
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "downlevelIteration": true
+  }
+}
