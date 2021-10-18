@@ -1,6 +1,6 @@
 {
   "name": "@mf-lite/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: add description",
   "author": "> TODO: add author",
   "homepage": "",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@attachments/assets": "^0.1.14",
-    "@mf-lite/core": "^0.0.1",
+    "@mf-lite/core": "^0.0.2",
     "commander": "^8.2.0",
     "npm-check-updates": "^11.8.5"
   }
