@@ -1,6 +1,6 @@
 import * as path from 'path';
-import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node/micro-fe-app-config';
-import { sourcePath } from '@attachments/module-federation-toolkits/lib/common/paths';
+import { MicroAppConfig } from '@mf-lite/core/lib/node/micro-fe-app-config';
+import { sourcePath } from '@mf-lite/core/lib/common/paths';
 
 const config: MicroAppConfig = {
   remotes: [],

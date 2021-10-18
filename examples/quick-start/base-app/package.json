@@ -31,16 +31,17 @@
   },
   "scripts": {
     "dev:proxy": "ts-node scripts/proxy.ts",
-    "dev:serve": "cross-env NODE_ENV=development mf-scripts serve --port=8080 --app-type=base-app",
-    "build:dev": "rimraf dist && cross-env NODE_ENV=development mf-scripts build --app-type=base-app",
-    "build:prod": "rimraf dist && cross-env NODE_ENV=production mf-scripts build --app-type=base-app",
+    "dev:serve": "cross-env NODE_ENV=development mf-lite serve --port=8080 --app-type=base-app",
+    "build:dev": "rimraf dist && cross-env NODE_ENV=development mf-lite build --app-type=base-app",
+    "build:prod": "rimraf dist && cross-env NODE_ENV=production mf-lite build --app-type=base-app",
     "lint": "eslint --ext js,jsx,ts,tsx src",
-    "generate": "mf-scripts generate",
-    "upgrade": "mf-scripts upgrade"
+    "generate": "mf-lite generate",
+    "upgrade": "mf-lite upgrade"
   },
   "dependencies": {
-    "@attachments/module-federation-toolkits": "^0.1.11",
-    "@attachments/utils": "^0.1.8",
+    "@mf-lite/cli": "^0.1.0",
+    "@mf-lite/core": "^0.1.0",
+    "@attachments/utils": "^0.1.15",
     "antd": "^4.16.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

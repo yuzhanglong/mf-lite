@@ -1,4 +1,4 @@
-import { MicroAppConfig } from '@attachments/module-federation-toolkits/lib/node/micro-fe-app-config';
+import { MicroAppConfig } from '@mf-lite/core/lib/node/micro-fe-app-config';
 
 const config: MicroAppConfig = {
   name: 'micro_app_two',

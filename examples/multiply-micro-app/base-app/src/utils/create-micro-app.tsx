@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MicroApp, MicroAppRef } from '@attachments/module-federation-toolkits/esm/browser/micro-app';
+import { MicroApp, MicroAppRef } from '@mf-lite/core/esm/browser/micro-app';
 import { MICRO_APPS, MicroAppConfig } from '~src/common/const';
 
 
