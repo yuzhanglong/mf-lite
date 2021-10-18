@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 
 import { program } from 'commander';
 import { loadTsConfigFile } from '@attachments/utils/lib/node';
@@ -6,10 +6,15 @@ import * as path from 'path';
 import ncu from 'npm-check-updates';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
-import { getMicroAppWebpackConfig, MicroAppWebpackConfigOptions } from './get-micro-app-webpack-config';
-import { webpackBuild, webpackServe } from './webpack-command';
-import { MicroAppConfig } from './micro-fe-app-config';
-import { generateMfExposeDeclaration } from './generate-mf-expose-declaration';
+import {
+  generateMfExposeDeclaration,
+  getMicroAppWebpackConfig,
+  MicroAppConfig,
+  MicroAppWebpackConfigOptions,
+  webpackBuild,
+  webpackServe
+} from '@mf-lite/core';
+import { launchPlopByConfig } from '@attachments/assets/lib';
 
 const APP_TYPES: (MicroAppWebpackConfigOptions['type'])[] = ['micro-app', 'base-app'];
 
@@ -26,14 +31,25 @@ const parseMicroAppBaseOptions = async (opt: any, isBuildMode: boolean) => {
     port: port || 8080,
     type: appType,
     isBuildMode: isBuildMode,
-    isAnalyzeMode: analyze,
+    isAnalyzeMode: analyze
   } as MicroAppWebpackConfigOptions;
 };
 
 
 // 版本信息
 program
-  .version(`attachments ${require('../../package.json').version}`);
+  .version(`@mf-lite/cli ${require('../package.json').version}`);
+
+
+// 创建项目
+program
+  .command('create')
+  .description('create mf-lite project template for base-app or micro-app')
+  .action(
+    async () => {
+      await launchPlopByConfig('micro-fe-generator');
+    }
+  );
 
 // server 服务
 program
@@ -48,7 +64,7 @@ program
       const config = await parseMicroAppBaseOptions(opt, false);
       const microAppWebpackConfig = getMicroAppWebpackConfig(config);
       await webpackServe(microAppWebpackConfig);
-    },
+    }
   );
 
 // 构建服务
@@ -65,7 +81,7 @@ program
       const microAppWebpackConfig = getMicroAppWebpackConfig(config);
 
       await webpackBuild(microAppWebpackConfig);
-    },
+    }
   );
 
 // 类型定义生成器
@@ -78,7 +94,7 @@ program
       const { appConfigPath } = opt;
       const appConfig = await loadTsConfigFile(path.resolve(process.cwd(), appConfigPath));
       await generateMfExposeDeclaration(appConfig as MicroAppConfig);
-    },
+    }
   );
 
 
@@ -92,14 +108,14 @@ program
 
       const DEPS_TO_UPGRADE = [
         '@attachments/proxy',
-        '@attachments/module-federation-toolkits',
         '@attachments/utils',
+        '@mf-lite/core'
       ];
 
       const res = await ncu.run({
         packageFile: path.resolve(process.cwd(), 'package.json'),
         upgrade: false,
-        filter: DEPS_TO_UPGRADE,
+        filter: DEPS_TO_UPGRADE
       });
 
       const entries = Object.entries(res);
@@ -120,20 +136,20 @@ program
             type: 'confirm',
             message: '[mf-lite] There is a new version of mf-lite, the dependencies information is listed above, are you sure you want to update it?',
             name: 'shouldUpgrade',
-            default: false,
-          },
-        ],
+            default: false
+          }
+        ]
       );
 
       if (userAnswers) {
         await ncu.run({
           packageFile: path.resolve(process.cwd(), 'package.json'),
           upgrade: true,
-          filter: DEPS_TO_UPGRADE,
+          filter: DEPS_TO_UPGRADE
         });
         console.log('[mf-lite] package.json is updated successfully, please run `yarn install` or `npm install` to upgrade your dependencies!');
       }
-    },
+    }
   );
 
 program.parse(process.argv);

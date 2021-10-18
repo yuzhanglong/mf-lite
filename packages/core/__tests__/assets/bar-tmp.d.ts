@@ -3,6 +3,7 @@
 export declare const add2: (a: string, b: string) => string;
 export declare class Hello2 {
 	private name;
+
 	constructor(name: string);
 }
 export default Hello2;

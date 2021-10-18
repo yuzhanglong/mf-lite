@@ -8,7 +8,7 @@
   "main": "lib/index.js",
   "module": "esm/index.js",
   "bin": {
-    "mf-lite": "lib/index.js"
+    "mf-lite": "lib/mf-lite.js"
   },
   "files": [
     "src",
@@ -21,11 +21,13 @@
     "build:esm": "rimraf ./esm && tsc --module ESNext --outDir esm",
     "build": "npm-run-all --parallel build:*",
     "lint": "eslint --ext .ts --max-warnings 0 ./src",
-    "test": "jest"
+    "test": "jest",
+    "micro-app-template": "cd playground && npx mf-lite create"
   },
   "dependencies": {
-    "@attachments/assets": "^0.1.13",
+    "@attachments/assets": "^0.1.14",
     "@mf-lite/core": "^0.0.1",
-    "commander": "^8.2.0"
+    "commander": "^8.2.0",
+    "npm-check-updates": "^11.8.5"
   }
 }

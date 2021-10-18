@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@attachments/assets@^0.1.13":
-  version "0.1.13"
-  resolved "http://bnpm.byted.org/@attachments/assets/-/assets-0.1.13.tgz#5114c64341a3619b253dd5c8030d9689acf8fa33"
-  integrity sha512-qspaJ3ojIm0L5lmVDbQORk2TEOg7mhR9LcO/dAoNGNhj1uegK0za57xFwwlrPl5dGESSBkUnUCNpeNRIklzyOg==
+"@attachments/assets@^0.1.14":
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/@attachments/assets/-/assets-0.1.14.tgz#d595e5b931cdd2587d4828ed1615005d0dfce96f"
+  integrity sha512-Le6sElvJO5wjN3vPSqNUDRNobXpMNPcXGSUf5q89QYO7v2J0OUrn0pYLCzryNRCmyoKNFMH+zqJ2GzCYCVwmdA==
   dependencies:
     "@attachments/utils" "^0.1.8"
     commander "^8.2.0"
     execa "^5.1.1"
     minimist "^1.2.5"
-    plop "^2.7.4"
+    plop "2.7.4"
 
 "@attachments/utils@^0.1.8":
   version "0.1.8"
@@ -2425,9 +2425,9 @@
   resolved "http://bnpm.byted.org/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/liftoff@^2.5.1":
+"@types/liftoff@^2.5.0":
   version "2.5.1"
-  resolved "http://bnpm.byted.org/@types/liftoff/-/liftoff-2.5.1.tgz#2eb4c1f86e9d5ee85571e56db0084b26af129ced"
+  resolved "https://registry.yarnpkg.com/@types/liftoff/-/liftoff-2.5.1.tgz#2eb4c1f86e9d5ee85571e56db0084b26af129ced"
   integrity sha512-nB3R6Q9CZcM07JgiTK6ibxqrG1reiHE+UX7em/W1DKwVBxDlfKWOefQjk4jubY5xX+GDxVsWR2KD1SenPby8ow==
   dependencies:
     "@types/fined" "*"
@@ -8535,9 +8535,9 @@ node-modules-regexp@^1.0.0:
   resolved "http://bnpm.byted.org/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
 
-node-plop@^0.26.3:
+node-plop@~0.26.2:
   version "0.26.3"
-  resolved "http://bnpm.byted.org/node-plop/-/node-plop-0.26.3.tgz#d6fa7e71393c8b940513ba8c4868f8aaa6dea9df"
+  resolved "https://registry.yarnpkg.com/node-plop/-/node-plop-0.26.3.tgz#d6fa7e71393c8b940513ba8c4868f8aaa6dea9df"
   integrity sha512-Cov028YhBZ5aB7MdMWJEmwyBig43aGL5WT4vdoB28Oitau1zZAcHUn8Sgfk9HM33TqhtLJ9PlM/O0Mv+QpV/4Q==
   dependencies:
     "@babel/runtime-corejs3" "^7.9.2"
@@ -8649,7 +8649,7 @@ npm-bundled@^1.1.1:
 
 npm-check-updates@^11.8.5:
   version "11.8.5"
-  resolved "http://bnpm.byted.org/npm-check-updates/-/npm-check-updates-11.8.5.tgz#8dec7fd255a437264742c15f9c0bb29f4eceaf55"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-11.8.5.tgz#8dec7fd255a437264742c15f9c0bb29f4eceaf55"
   integrity sha512-IYSHjlWe8UEugDy7X0qjBeJwcni4DlcWdBK4QQEbwgkNlEDlXyd4yQJYWFumKaJzrp/n5/EcvaboXsBD1Er/pw==
   dependencies:
     chalk "^4.1.2"
@@ -9476,17 +9476,17 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-plop@^2.7.4:
-  version "2.7.5"
-  resolved "http://bnpm.byted.org/plop/-/plop-2.7.5.tgz#1aa46ce44d0dae541c233e63a6db66ffd0d47a78"
-  integrity sha512-SuX3KRVUDlgs1bQR4y7D3yBy5yCvQdw8os8vzRh6XBZ7uYD5s9qiVuFjIOt8WsSdpbmIxmQJbV7NCF3QXaX86Q==
+plop@2.7.4:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/plop/-/plop-2.7.4.tgz#835280aef3541102063b758f5116cce899e1c72b"
+  integrity sha512-SaqN3mwug/Ur2RE/ryo05oLTLy+8qZGwosNt9JnrFWca+dLCsPJR1j2ZXwjrccmNu6LA7eB56lRyk/G0fKf9HA==
   dependencies:
-    "@types/liftoff" "^2.5.1"
+    "@types/liftoff" "^2.5.0"
     chalk "^1.1.3"
     interpret "^1.2.0"
     liftoff "^2.5.0"
-    minimist "^1.2.5"
-    node-plop "^0.26.3"
+    minimist "^1.2.0"
+    node-plop "~0.26.2"
     ora "^3.4.0"
     v8flags "^2.0.10"
 
