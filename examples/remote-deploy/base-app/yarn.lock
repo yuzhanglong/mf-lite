@@ -13,10 +13,10 @@
     minimist "^1.2.5"
     plop "^2.7.6"
 
-"@attachments/proxy@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npmmirror.com/@attachments/proxy/download/@attachments/proxy-0.1.0.tgz#6928b0168a8ea02f31ad0b414dec1a10315a36a1"
-  integrity sha1-aSiwFoqOoC8xrQtBTewaEDFaNqE=
+"@attachments/proxy@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.npmmirror.com/@attachments/proxy/download/@attachments/proxy-0.1.15.tgz#339dfa795a47e0638448deb10310f242b6b5669a"
+  integrity sha1-M536eVpH4GOESN6xAxDyQra1Zpo=
   dependencies:
     koa-compose "^4.1.0"
     pem "^1.14.4"
@@ -1091,6 +1091,50 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@mf-lite/core/-/core-0.1.0.tgz#ed70adf9ed766605663fd00072c0a177747e0daa"
   integrity sha512-7Awz5QkDbVSgV9gTFAtyZM1AL62FYrP3/P7GHIxn54oKyL2tIoomJ3AK/b2FMDs2OG0QLlgdUmgDL0YpbUj/OQ==
+  dependencies:
+    "@attachments/utils" "^0.1.8"
+    "@babel/core" "^7.15.5"
+    "@babel/plugin-proposal-decorators" "^7.15.4"
+    "@babel/plugin-transform-runtime" "^7.15.0"
+    "@babel/preset-env" "^7.15.6"
+    "@babel/preset-react" "^7.14.5"
+    "@babel/preset-typescript" "^7.15.0"
+    "@pmmmwh/react-refresh-webpack-plugin" "^0.5.1"
+    "@types/mini-css-extract-plugin" "^2.3.0"
+    autoprefixer "^10.3.6"
+    axios "^0.22.0"
+    babel-loader "^8.2.2"
+    chalk "^4.1.2"
+    commander "^8.2.0"
+    css-loader "^6.3.0"
+    dts-bundle-generator "^5.9.0"
+    enhanced-resolve "^5.8.3"
+    fs-extra "^10.0.0"
+    html-webpack-plugin "^5.3.2"
+    inquirer "^8.2.0"
+    less "^4.1.1"
+    less-loader "^10.0.1"
+    mini-css-extract-plugin "^2.3.0"
+    moment "^2.29.1"
+    npm-check-updates "^11.8.5"
+    postcss "^8.3.8"
+    postcss-loader "^6.1.1"
+    qiankun "^2.5.0"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-refresh "^0.10.0"
+    style-loader "^3.3.0"
+    terser-webpack-plugin "^5.2.4"
+    ts-morph "^12.0.0"
+    webpack "^5.56.0"
+    webpack-bundle-analyzer "^4.4.2"
+    webpack-dev-server "^4.3.0"
+    webpack-merge "^5.8.0"
+
+"@mf-lite/core@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.npmmirror.com/@mf-lite/core/download/@mf-lite/core-0.1.2.tgz?cache=0&sync_timestamp=1634657083613&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40mf-lite%2Fcore%2Fdownload%2F%40mf-lite%2Fcore-0.1.2.tgz#176524e38a9b249b651b4a268231ce473daf9f33"
+  integrity sha1-F2Uk44qbJJtlG0omgjHORz2vnzM=
   dependencies:
     "@attachments/utils" "^0.1.8"
     "@babel/core" "^7.15.5"

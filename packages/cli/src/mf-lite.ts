@@ -109,7 +109,8 @@ program
       const DEPS_TO_UPGRADE = [
         '@attachments/proxy',
         '@attachments/utils',
-        '@mf-lite/core'
+        '@mf-lite/core',
+        '@mf-lite/cli'
       ];
 
       const res = await ncu.run({

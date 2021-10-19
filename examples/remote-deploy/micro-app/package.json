@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@mf-lite/cli": "^0.1.0",
-    "@mf-lite/core": "^0.1.0",
+    "@mf-lite/core": "^0.1.2",
     "@attachments/utils": "^0.1.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
