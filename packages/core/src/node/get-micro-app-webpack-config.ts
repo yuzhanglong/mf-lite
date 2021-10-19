@@ -256,62 +256,71 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
     // 模块解析
     module: {
       rules: [
-        // babel 相关
         {
-          test: [/\.[jt]sx?$/],
-          include: [sourcePath],
-          use: {
-            loader: require.resolve('babel-loader'),
-            options: {
-              presets: [
-                [
-                  require.resolve('@babel/preset-env'),
-                ],
-                [
-                  require.resolve('@babel/preset-react'),
-                  {
-                    runtime: 'automatic',
-                  },
-                ],
-                [
-                  require.resolve('@babel/preset-typescript'),
-                ],
-              ],
-              plugins: [
-                [
-                  require.resolve('@babel/plugin-proposal-decorators'),
-                  {
-                    legacy: true,
-                  },
-                ],
-                [require.resolve('@babel/plugin-transform-runtime')],
-              ].filter(Boolean),
-            },
-          },
-        },
-        // css 预处理相关
-        {
-          test: [/\.(le|c)ss$/],
-          use: [
-            isProductionEnvironment ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
-            require.resolve('css-loader'),
+          oneOf: [
+            // babel 相关
             {
-              loader: require.resolve('postcss-loader'),
-              options: {
-                postcssOptions: {
-                  plugins: [
-                    require('autoprefixer'),
+              test: [/\.[jt]sx?$/],
+              include: [sourcePath],
+              use: {
+                loader: require.resolve('babel-loader'),
+                options: {
+                  presets: [
+                    [
+                      require.resolve('@babel/preset-env'),
+                    ],
+                    [
+                      require.resolve('@babel/preset-react'),
+                      {
+                        runtime: 'automatic',
+                      },
+                    ],
+                    [
+                      require.resolve('@babel/preset-typescript'),
+                    ],
                   ],
+                  plugins: [
+                    [
+                      require.resolve('@babel/plugin-proposal-decorators'),
+                      {
+                        legacy: true,
+                      },
+                    ],
+                    [require.resolve('@babel/plugin-transform-runtime')],
+                  ].filter(Boolean),
                 },
               },
             },
+            // css 预处理相关
             {
-              loader: require.resolve('less-loader'),
-              options: {
-                lessOptions: {
-                  javascriptEnabled: true,
+              test: [/\.(le|c)ss$/],
+              use: [
+                isProductionEnvironment ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
+                require.resolve('css-loader'),
+                {
+                  loader: require.resolve('postcss-loader'),
+                  options: {
+                    postcssOptions: {
+                      plugins: [
+                        require('autoprefixer'),
+                      ],
+                    },
+                  },
                 },
-              },
+                {
+                  loader: require.resolve('less-loader'),
+                  options: {
+                    lessOptions: {
+                      javascriptEnabled: true,
+                    },
+                  },
+                },
+              ],
+            },
+            // 其它内容全部以 asset/resource 输出
+            {
+              exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+              type: 'asset/resource',
             },
           ],
         },
@@ -321,7 +330,5 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
 
   // 合并用户自定义的 webpack 配置
   // @ts-ignore
-  const finalConfig = merge(config, microAppConfigManager.config.webpackConfig || {});
-
-  return finalConfig;
+  return merge(config, microAppConfigManager.config.webpackConfig || {});
 };
