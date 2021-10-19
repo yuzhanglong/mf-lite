@@ -80,6 +80,10 @@ npm run dev:serve
 
 > TIP: 所有案例都可以在本仓库的 `examples` 目录下找到。
 
+## 它是如何工作的
+
+请参考[这篇文章](https://zhuanlan.zhihu.com/p/422460780)
+
 ## License
 
 MIT [@yuzhanglong](https://github.com/yuzhanglong)
