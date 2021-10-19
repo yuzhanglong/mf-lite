@@ -2,16 +2,23 @@
 # yarn lockfile v1
 
 
-"@attachments/assets@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@attachments/assets/-/assets-0.1.14.tgz#d595e5b931cdd2587d4828ed1615005d0dfce96f"
-  integrity sha512-Le6sElvJO5wjN3vPSqNUDRNobXpMNPcXGSUf5q89QYO7v2J0OUrn0pYLCzryNRCmyoKNFMH+zqJ2GzCYCVwmdA==
+"@attachments/assets@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.npmmirror.com/@attachments/assets/download/@attachments/assets-0.1.16.tgz?cache=0&sync_timestamp=1634607489682&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Fassets%2Fdownload%2F%40attachments%2Fassets-0.1.16.tgz#a103081a9d9ffc9003bc61842dcc43016dfd2f56"
+  integrity sha1-oQMIGp2f/JADvGGELcxDAW39L1Y=
   dependencies:
-    "@attachments/utils" "^0.1.8"
+    "@attachments/utils" "^0.1.15"
     commander "^8.2.0"
     execa "^5.1.1"
     minimist "^1.2.5"
-    plop "2.7.4"
+    plop "^2.7.6"
+
+"@attachments/utils@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.npmmirror.com/@attachments/utils/download/@attachments/utils-0.1.15.tgz#a1a59443ed737c47fae86f79aa93d06fdd614fff"
+  integrity sha1-oaWUQ+1zfEf66G95qpPQb91hT/8=
+  dependencies:
+    ts-node "^10.2.1"
 
 "@attachments/utils@^0.1.8":
   version "0.1.8"
@@ -2425,10 +2432,10 @@
   resolved "http://bnpm.byted.org/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/liftoff@^2.5.0":
+"@types/liftoff@^2.5.1":
   version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@types/liftoff/-/liftoff-2.5.1.tgz#2eb4c1f86e9d5ee85571e56db0084b26af129ced"
-  integrity sha512-nB3R6Q9CZcM07JgiTK6ibxqrG1reiHE+UX7em/W1DKwVBxDlfKWOefQjk4jubY5xX+GDxVsWR2KD1SenPby8ow==
+  resolved "https://registry.nlark.com/@types/liftoff/download/@types/liftoff-2.5.1.tgz?cache=0&sync_timestamp=1629710700443&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fliftoff%2Fdownload%2F%40types%2Fliftoff-2.5.1.tgz#2eb4c1f86e9d5ee85571e56db0084b26af129ced"
+  integrity sha1-LrTB+G6dXuhVceVtsAhLJq8SnO0=
   dependencies:
     "@types/fined" "*"
     "@types/interpret" "*"
@@ -8554,10 +8561,10 @@ node-modules-regexp@^1.0.0:
   resolved "http://bnpm.byted.org/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
 
-node-plop@~0.26.2:
+node-plop@^0.26.3:
   version "0.26.3"
-  resolved "https://registry.yarnpkg.com/node-plop/-/node-plop-0.26.3.tgz#d6fa7e71393c8b940513ba8c4868f8aaa6dea9df"
-  integrity sha512-Cov028YhBZ5aB7MdMWJEmwyBig43aGL5WT4vdoB28Oitau1zZAcHUn8Sgfk9HM33TqhtLJ9PlM/O0Mv+QpV/4Q==
+  resolved "https://registry.npmmirror.com/node-plop/download/node-plop-0.26.3.tgz?cache=0&sync_timestamp=1634536557473&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fnode-plop%2Fdownload%2Fnode-plop-0.26.3.tgz#d6fa7e71393c8b940513ba8c4868f8aaa6dea9df"
+  integrity sha1-1vp+cTk8i5QFE7qMSGj4qqbeqd8=
   dependencies:
     "@babel/runtime-corejs3" "^7.9.2"
     "@types/inquirer" "^6.5.0"
@@ -9495,17 +9502,17 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-plop@2.7.4:
-  version "2.7.4"
-  resolved "https://registry.yarnpkg.com/plop/-/plop-2.7.4.tgz#835280aef3541102063b758f5116cce899e1c72b"
-  integrity sha512-SaqN3mwug/Ur2RE/ryo05oLTLy+8qZGwosNt9JnrFWca+dLCsPJR1j2ZXwjrccmNu6LA7eB56lRyk/G0fKf9HA==
+plop@^2.7.6:
+  version "2.7.6"
+  resolved "https://registry.npmmirror.com/plop/download/plop-2.7.6.tgz?cache=0&sync_timestamp=1634577361444&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fplop%2Fdownload%2Fplop-2.7.6.tgz#1fa5360cd5b04e9932ce677bb6bd44750d97ae67"
+  integrity sha1-H6U2DNWwTpkyzmd7tr1EdQ2Xrmc=
   dependencies:
-    "@types/liftoff" "^2.5.0"
+    "@types/liftoff" "^2.5.1"
     chalk "^1.1.3"
     interpret "^1.2.0"
     liftoff "^2.5.0"
-    minimist "^1.2.0"
-    node-plop "~0.26.2"
+    minimist "^1.2.5"
+    node-plop "^0.26.3"
     ora "^3.4.0"
     v8flags "^2.0.10"
 

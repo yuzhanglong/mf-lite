@@ -25,7 +25,7 @@
     "micro-app-template": "cd playground && npx mf-lite create"
   },
   "dependencies": {
-    "@attachments/assets": "^0.1.14",
+    "@attachments/assets": "^0.1.16",
     "@mf-lite/core": "^0.1.0",
     "commander": "^8.2.0",
     "npm-check-updates": "^11.8.5"
