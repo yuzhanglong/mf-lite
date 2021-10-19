@@ -39,7 +39,7 @@
     "upgrade": "mf-lite upgrade"
   },
   "dependencies": {
-    "@mf-lite/cli": "^0.1.0",
+    "@mf-lite/cli": "^0.1.3",
     "@mf-lite/core": "^0.1.2",
     "@attachments/utils": "^0.1.15",
     "react": "^17.0.2",

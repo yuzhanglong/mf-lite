@@ -1,6 +1,6 @@
 {
   "name": "@mf-lite/cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A scaffold for quickly creating base applications or micro-front-end applications from the command line",
   "author": "yuzhanglong <loveyzl1123@gmail.com>",
   "homepage": "https://github.com/yuzhanglong/mf-lite",
