@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@attachments/proxy": "^0.1.0",
+    "@attachments/proxy": "^0.1.15",
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16.4.6",
     "@types/react": "^17.0.18",
@@ -35,7 +35,8 @@
     "build:dev": "rimraf dist && cross-env NODE_ENV=development mf-lite build --app-type=micro-app",
     "build:prod": "rimraf dist && cross-env NODE_ENV=production mf-lite build --app-type=micro-app",
     "lint": "eslint --ext js,jsx,ts,tsx src",
-    "generate": "mf-lite generate"
+    "generate": "mf-lite generate",
+    "upgrade": "mf-lite upgrade"
   },
   "dependencies": {
     "@mf-lite/cli": "^0.1.0",

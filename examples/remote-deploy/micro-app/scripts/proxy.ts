@@ -12,6 +12,14 @@ const runProxy = async () => {
     }
   );
 
+  server.addRule(
+    'mf-lite-quick-start-base-app.vercel.app',
+    {
+      location: '/',
+      proxyPass: 'http://localhost:8080',
+    }
+  );
+
   await server.initServers();
   await server.listen();
 };
