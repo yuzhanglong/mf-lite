@@ -1,11 +1,11 @@
 {
-  "name": "micro-app-share",
+  "name": "quick-start",
   "version": "1.0.0",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "start-all": "npx concurrently \"yarn:dev:*\" --prefix-colors dim",
     "dev:start-base-app": "cd base-app && yarn dev:serve",
-    "dev:start-micro-app-one": "cd micro-app-one && yarn dev:serve",
-    "dev:start-micro-app-two": "cd micro-app-two && yarn dev:serve"
+    "dev:start-micro-app-one": "cd micro-app && yarn dev:serve"
   }
 }

@@ -19,16 +19,16 @@
 
 ## 介绍
 
-**mf-lite** 是一个基于 Webpack 5 Module Federation 来实现模块共享、知名微前端库 [qiankun](https://github.com/umijs/qiankun) 来做隔离沙箱的微前端解决方案，它提供以下内容：
+**mf-lite** 是一个基于 Webpack 5 Module Federation 来实现模块共享、[qiankun](https://github.com/umijs/qiankun) 来做隔离沙箱的微前端解决方案，它提供以下内容：
 
-- 一个通过命令行快速创建基座应用或者微前端应用的**脚手架**（CLI），提供项目初始化依赖及开发、构建脚本。[![npm Version](https://img.shields.io/npm/v/@attachments/assets.svg)](https://www.npmjs.com/package/@attachments/assets)
+- 一个通过命令行快速创建基座应用或者微前端应用的[脚手架](https://github.com/yuzhanglong/mf-lite), 提供项目初始化依赖及开发、构建脚本。[![npm Version](https://img.shields.io/npm/v/@attachments/assets.svg)](https://www.npmjs.com/package/@attachments/assets)
 
-- 一个核心工具库，它可以：[![npm Version](https://img.shields.io/npm/v/@attachments/module-federation-toolkits.svg)](https://www.npmjs.com/package/@attachments/module-federation-toolkits)
+- 一个[核心工具库](https://github.com/yuzhanglong/mf-lite/tree/master/packages/core), 它可以：[![npm Version](https://img.shields.io/npm/v/@mf-lite/core.svg)](https://www.npmjs.com/package/@mf-lite/core)
   - 基于 **Webpack Module Federation** 特性，让微前端架构下的的**库共享**(share library)、甚至**模块共享**(share module) 成为可能，且使用更加优雅、易于维护。
-  - 自动生成、处理生产可用的 webpack 的复杂配置项，用户基本上无需直接接触 webpack 的相关配置。
+  - 自动生成、处理开发、生产可用的 webpack 的复杂配置项，用户基本上无需直接接触 webpack 的相关配置。
   - 支持生成远程模块的 typescript 类型定义。
 
-- 一个基于 node.js、方便独立开发微应用的 HTTP **请求代理工具**（proxy），使微应用的独立开发方式更加优雅。[![npm Version](https://img.shields.io/npm/v/@attachments/proxy.svg)](https://www.npmjs.com/package/@attachments/proxy)
+- 一个基于 node.js、方便独立开发微应用的 HTTP [请求代理工具](https://github.com/yuzhanglong/attachments/tree/main/packages/proxy), 使微应用的独立开发方式更加优雅。[![npm Version](https://img.shields.io/npm/v/@attachments/proxy.svg)](https://www.npmjs.com/package/@attachments/proxy)
 
 
 对于用户来说，唯一需要做的就是拉取模板、然后加上一些十分简单的配置，剩下的和平常的开发流程别无二致。
@@ -47,7 +47,26 @@
 
 ## 快速开始
 
-[点击查看文档](https://ph3xmz5sya.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f)
+**安装脚手架工具**
+
+```shell
+npm install @mf-lite/cli -g
+```
+
+**在交互式命令行中创建项目**
+
+```shell
+mf-lite create
+```
+
+**安装依赖、执行项目**
+
+```shell
+npm install
+npm run dev:serve
+```
+
+更多信息以及实践方案，请[查看文档](https://ph3xmz5sya.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f)
 
 ## 案例
 

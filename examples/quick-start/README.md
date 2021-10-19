@@ -6,24 +6,10 @@
 
 ### 基本的开发环境
 
-启动基座应用：
+启动基座应用和微应用：
 
 ```shell
-cd base-app
-
-yarn install
-
-yarn dev:serve
-```
-
-打开另一个终端，启动微应用：
-
-```shell
-cd micro-app
-
-yarn install
-
-yarn dev:serve
+yarn start-all
 ```
 
 进入 `localhost:8080` 查看效果。
