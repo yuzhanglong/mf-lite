@@ -2,22 +2,24 @@
 # yarn lockfile v1
 
 
-"@attachments/assets@^0.1.16":
-  version "0.1.16"
-  resolved "https://registry.npmmirror.com/@attachments/assets/download/@attachments/assets-0.1.16.tgz?cache=0&sync_timestamp=1634607489682&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Fassets%2Fdownload%2F%40attachments%2Fassets-0.1.16.tgz#a103081a9d9ffc9003bc61842dcc43016dfd2f56"
-  integrity sha1-oQMIGp2f/JADvGGELcxDAW39L1Y=
+"@attachments/assets@^0.1.23":
+  version "0.1.23"
+  resolved "https://registry.yarnpkg.com/@attachments/assets/-/assets-0.1.23.tgz#7cbff2e70a48b20767a65e0b677f6dcab388e0a7"
+  integrity sha512-RjlExm103RBxnkNM6FicF0FiXRdyBwPCgw5PxNSJebv75HLYzjSgRx6sMw5FoAwLcSxCATNvl0adV28fsqrfqg==
   dependencies:
-    "@attachments/utils" "^0.1.15"
+    "@attachments/utils" "^0.1.21"
     commander "^8.2.0"
     execa "^5.1.1"
     minimist "^1.2.5"
+    node-plop "^0.26.3"
     plop "^2.7.6"
 
-"@attachments/utils@^0.1.15":
-  version "0.1.15"
-  resolved "https://registry.npmmirror.com/@attachments/utils/download/@attachments/utils-0.1.15.tgz#a1a59443ed737c47fae86f79aa93d06fdd614fff"
-  integrity sha1-oaWUQ+1zfEf66G95qpPQb91hT/8=
+"@attachments/utils@^0.1.21":
+  version "0.1.21"
+  resolved "https://registry.yarnpkg.com/@attachments/utils/-/utils-0.1.21.tgz#1399d48a9ec5ac12190d38c631e75f6f1b20000e"
+  integrity sha512-8PLco4JxGS8gjbKGzwO8URcuYB1UTYrc3yNp60uirkFdAlaxbZikWn7ruGKrF6P7ALQuWnIXyvQt8Ima/F5Umg==
   dependencies:
+    execa "^5.1.1"
     ts-node "^10.2.1"
 
 "@attachments/utils@^0.1.8":
