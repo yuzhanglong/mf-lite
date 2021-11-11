@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@attachments/assets@^0.1.23":
-  version "0.1.23"
-  resolved "https://registry.yarnpkg.com/@attachments/assets/-/assets-0.1.23.tgz#7cbff2e70a48b20767a65e0b677f6dcab388e0a7"
-  integrity sha512-RjlExm103RBxnkNM6FicF0FiXRdyBwPCgw5PxNSJebv75HLYzjSgRx6sMw5FoAwLcSxCATNvl0adV28fsqrfqg==
+"@attachments/assets@^0.1.24":
+  version "0.1.24"
+  resolved "https://registry.npmmirror.com/@attachments/assets/download/@attachments/assets-0.1.24.tgz?cache=0&sync_timestamp=1636642239945&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40attachments%2Fassets%2Fdownload%2F%40attachments%2Fassets-0.1.24.tgz#55a854fd59fe6a7c9291a7c7c829522c43dd3a64"
+  integrity sha512-bgd7ErzG04eLb1GA3biezflKvGtdJjLGRkZ0N1HaoQRY37zlBGs40eW2OUfNLlIegjosIVAjKU0/e7sT03u3MQ==
   dependencies:
     "@attachments/utils" "^0.1.21"
     commander "^8.2.0"
