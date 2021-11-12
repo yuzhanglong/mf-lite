@@ -10,11 +10,9 @@
   "scripts": {
     "lint": "eslint --ext .ts --max-warnings 0 ./",
     "test": "jest --no-cache",
-    "lerna:build": "lerna run build",
-    "lerna:bootstrap": "lerna bootstrap",
-    "lerna:link": "lerna run dev:link",
-    "lerna:clean": "lerna clean",
-    "lerna:publish": "yarn lerna:clean && yarn install && yarn lerna:build && lerna publish --no-push"
+    "build-all": "pnpm -r build",
+    "clean-all": "lerna clean",
+    "publish-all": "pnpm clean-all && pnpm i && pnpm build-all && lerna publish --no-push"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
