@@ -4,7 +4,6 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import moment from 'moment';
 import * as path from 'path';
-import TerserWebpackPlugin from 'terser-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import merge from 'webpack-merge';
 import { publicPath as assetPublicPath, sourcePath } from '../common/paths';
@@ -13,6 +12,8 @@ import { getMicroAppConfigManager, MicroAppConfig } from './micro-fe-app-config'
 import { getModuleFederationExposes } from './get-module-federation-exposes';
 import { EmitMfExposeWebpackPlugin } from './emit-mf-expose-webpack-plugin';
 import { AddEntryAttributeWebpackPlugin } from './add-entry-attribute-webpack-plugin';
+
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 const { ModuleFederationPlugin } = require('webpack').container;
 
