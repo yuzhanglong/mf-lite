@@ -55,12 +55,16 @@ importers:
   packages/cli:
     specifiers:
       '@attachments/assets': ^0.1.24
+      '@attachments/utils': ^0.1.8
       '@mf-lite/core': ^0.1.2
+      chalk: ^4.1.2
       commander: ^8.2.0
       npm-check-updates: ^11.8.5
     dependencies:
       '@attachments/assets': registry.npmmirror.com/@attachments/assets/0.1.24_ee928ac548ac44c173bf0d4654ae2c29
+      '@attachments/utils': registry.npmmirror.com/@attachments/utils/0.1.21_ee928ac548ac44c173bf0d4654ae2c29
       '@mf-lite/core': link:../core
+      chalk: registry.nlark.com/chalk/4.1.2
       commander: registry.npmmirror.com/commander/8.3.0
       npm-check-updates: registry.npmmirror.com/npm-check-updates/11.8.5
 
@@ -1759,7 +1763,7 @@ packages:
     version: 0.12.0
 
   registry.nlark.com/chalk/1.1.3:
-    resolution: {integrity: sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/chalk/download/chalk-1.1.3.tgz?cache=0&sync_timestamp=1631501913020&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-1.1.3.tgz}
+    resolution: {integrity: sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/chalk/download/chalk-1.1.3.tgz?cache=0&sync_timestamp=1631509549883&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-1.1.3.tgz}
     name: chalk
     version: 1.1.3
     engines: {node: '>=0.10.0'}
@@ -1772,7 +1776,7 @@ packages:
     dev: false
 
   registry.nlark.com/chalk/2.4.2:
-    resolution: {integrity: sha1-zUJUFnelQzPPVBpJEIwUMrRMlCQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/chalk/download/chalk-2.4.2.tgz?cache=0&sync_timestamp=1631501913020&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-2.4.2.tgz}
+    resolution: {integrity: sha1-zUJUFnelQzPPVBpJEIwUMrRMlCQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/chalk/download/chalk-2.4.2.tgz?cache=0&sync_timestamp=1631509549883&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-2.4.2.tgz}
     name: chalk
     version: 2.4.2
     engines: {node: '>=4'}
@@ -9174,7 +9178,7 @@ packages:
     name: '@attachments/utils'
     version: 0.1.21
     dependencies:
-      execa: registry.nlark.com/execa/5.1.1
+      execa: registry.npmmirror.com/execa/5.1.1
       ts-node: registry.npmmirror.com/ts-node/10.4.0_ee928ac548ac44c173bf0d4654ae2c29
     transitivePeerDependencies:
       - '@swc/core'
@@ -12915,6 +12919,23 @@ packages:
     version: 3.3.0
     engines: {node: '>=0.8.x'}
 
+  registry.npmmirror.com/execa/5.1.1:
+    resolution: {integrity: sha1-+ArZy/Qpj3vR1MlVXCHpN0HEEd0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/execa/download/execa-5.1.1.tgz}
+    name: execa
+    version: 5.1.1
+    engines: {node: '>=10'}
+    dependencies:
+      cross-spawn: registry.nlark.com/cross-spawn/7.0.3
+      get-stream: registry.nlark.com/get-stream/6.0.1
+      human-signals: registry.nlark.com/human-signals/2.1.0
+      is-stream: registry.nlark.com/is-stream/2.0.1
+      merge-stream: registry.nlark.com/merge-stream/2.0.0
+      npm-run-path: registry.npmmirror.com/npm-run-path/4.0.1
+      onetime: registry.nlark.com/onetime/5.1.2
+      signal-exit: registry.npmmirror.com/signal-exit/3.0.5
+      strip-final-newline: registry.nlark.com/strip-final-newline/2.0.0
+    dev: false
+
   registry.npmmirror.com/expect/27.3.1:
     resolution: {integrity: sha1-0PFwsfXIogCbqwvv/Uu5TwQ+OOc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/expect/download/expect-27.3.1.tgz}
     name: expect
@@ -14430,7 +14451,7 @@ packages:
     dev: false
 
   registry.npmmirror.com/npm-run-path/4.0.1:
-    resolution: {integrity: sha1-t+zR5e1T2o43pV4cImnguX7XSOo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/npm-run-path/download/npm-run-path-4.0.1.tgz?cache=0&sync_timestamp=1633420537317&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-run-path%2Fdownload%2Fnpm-run-path-4.0.1.tgz}
+    resolution: {integrity: sha1-t+zR5e1T2o43pV4cImnguX7XSOo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/npm-run-path/download/npm-run-path-4.0.1.tgz}
     name: npm-run-path
     version: 4.0.1
     engines: {node: '>=8'}
