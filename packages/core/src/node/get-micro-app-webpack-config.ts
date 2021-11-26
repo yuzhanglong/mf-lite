@@ -52,6 +52,22 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
   // 微应用工具管理类
   const microAppConfigManager = getMicroAppConfigManager(appConfig);
 
+  // 样式默认配置
+  const baseStyleConfigRules = [
+    isProductionEnvironment ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
+    require.resolve('css-loader'),
+    {
+      loader: require.resolve('postcss-loader'),
+      options: {
+        postcssOptions: {
+          plugins: [
+            require('autoprefixer'),
+          ],
+        },
+      },
+    },
+  ].filter(Boolean);
+
   // noinspection UnnecessaryLocalVariableJS
   const config = {
     mode: isProductionEnvironment ? 'production' : 'development',
@@ -296,18 +312,7 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
             {
               test: [/\.(le|c)ss$/],
               use: [
-                isProductionEnvironment ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
-                require.resolve('css-loader'),
-                {
-                  loader: require.resolve('postcss-loader'),
-                  options: {
-                    postcssOptions: {
-                      plugins: [
-                        require('autoprefixer'),
-                      ],
-                    },
-                  },
-                },
+                ...baseStyleConfigRules,
                 {
                   loader: require.resolve('less-loader'),
                   options: {
@@ -315,6 +320,16 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
                       javascriptEnabled: true,
                     },
                   },
+                },
+              ],
+            },
+            // css 预处理相关
+            {
+              test: [/\.(sa|c)ss$/],
+              use: [
+                ...baseStyleConfigRules,
+                {
+                  loader: require.resolve('sass-loader'),
                 },
               ],
             },
@@ -330,6 +345,13 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
   };
 
   // 合并用户自定义的 webpack 配置
+  const additionalConfig = microAppConfigManager.config.webpackConfig;
+  if (typeof additionalConfig === 'function') {
+    // 用户可以二次修改
+    additionalConfig(config as webpack.Configuration);
+    return config;
+  }
+
   // @ts-ignore
-  return merge(config, microAppConfigManager.config.webpackConfig || {});
+  return merge(config, additionalConfig || {});
 };
