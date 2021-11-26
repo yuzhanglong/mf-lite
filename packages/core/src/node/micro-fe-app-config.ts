@@ -20,7 +20,7 @@ export interface MicroAppConfig {
     sharedLibraries?: SharedLibrary[]
   }[];
   exposes: SharedLibraryExpose[];
-  webpackConfig?: Partial<webpack.Configuration>;
+  webpackConfig?: Partial<webpack.Configuration> | ((config: webpack.Configuration) => void);
 }
 
 /**
