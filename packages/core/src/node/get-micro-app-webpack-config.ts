@@ -308,7 +308,7 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
                 },
               },
             },
-            // css 预处理相关
+            // css 预处理相关 css 和 less
             {
               test: [/\.(le|c)ss$/],
               use: [
@@ -323,9 +323,9 @@ export const getMicroAppWebpackConfig = (options: MicroAppWebpackConfigOptions) 
                 },
               ],
             },
-            // css 预处理相关
+            // css 预处理相关 sass
             {
-              test: [/\.(sa|c)ss$/],
+              test: [/\.s[ac]ss$/],
               use: [
                 ...baseStyleConfigRules,
                 {

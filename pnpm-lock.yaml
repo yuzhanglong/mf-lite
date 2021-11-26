@@ -56,7 +56,7 @@ importers:
     specifiers:
       '@attachments/assets': ^0.1.24
       '@attachments/utils': ^0.1.8
-      '@mf-lite/core': ^0.1.6
+      '@mf-lite/core': ^0.1.7
       chalk: ^4.1.2
       commander: ^8.2.0
       npm-check-updates: ^11.8.5
