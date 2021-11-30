@@ -56,7 +56,7 @@ importers:
     specifiers:
       '@attachments/assets': ^0.1.24
       '@attachments/utils': ^0.1.8
-      '@mf-lite/core': ^0.1.7
+      '@mf-lite/core': ^0.1.8
       chalk: ^4.1.2
       commander: ^8.2.0
       npm-check-updates: ^11.8.5
@@ -12611,7 +12611,7 @@ packages:
     dev: false
 
   registry.npmmirror.com/uglify-js/3.14.3:
-    resolution: {integrity: sha1-wPJd/qHo5TI+zPWWEL4ItgQ8Fc8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uglify-js/download/uglify-js-3.14.3.tgz?cache=0&sync_timestamp=1635828962998&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fuglify-js%2Fdownload%2Fuglify-js-3.14.3.tgz}
+    resolution: {integrity: sha1-wPJd/qHo5TI+zPWWEL4ItgQ8Fc8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uglify-js/download/uglify-js-3.14.3.tgz?cache=0&sync_timestamp=1635829559549&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fuglify-js%2Fdownload%2Fuglify-js-3.14.3.tgz}
     name: uglify-js
     version: 3.14.3
     engines: {node: '>=0.8.0'}
