@@ -5927,9 +5927,9 @@ mute-stream@0.0.8:
   integrity sha1-FjDEKyJR/4HiooPelqVJfqkuXg0=
 
 nanoid@^3.1.28:
-  version "3.1.29"
-  resolved "https://registry.npmmirror.com/nanoid/download/nanoid-3.1.29.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fnanoid%2Fdownload%2Fnanoid-3.1.29.tgz#214fb2d7a33e1a5bef4757b779dfaeb6a4e5aeb4"
-  integrity sha1-IU+y16M+GlvvR1e3ed+utqTlrrQ=
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
+  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
