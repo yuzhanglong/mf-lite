@@ -66,7 +66,7 @@ npm install
 npm run dev:serve
 ```
 
-更多信息以及实践方案，请[查看文档](https://ph3xmz5sya.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f)
+更多信息以及实践方案，请[查看文档](https://yuzhanglong.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f)
 
 ## 案例
 
