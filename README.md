@@ -13,7 +13,7 @@
 
 <div align="center">
 
-[在线 DEMO](https://mf-lite-quick-start-base-app.vercel.app/) | [文档](https://ph3xmz5sya.feishu.cn/docs/doccnGEPiy8D3DJTZw6S05QJW4f)
+[在线 DEMO](https://mf-lite-quick-start-base-app.vercel.app/) | [文档](https://yuzhanglong.feishu.cn/wiki/wikcncmRDZCUJRigluH7skQbtvg)
 </div>
 
 
